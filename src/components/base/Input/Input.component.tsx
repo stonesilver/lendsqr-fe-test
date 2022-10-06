@@ -18,17 +18,17 @@ const Input = ({
   error,
 }: InputProps) => {
   return (
-    <>
+    <div>
       <input
         type={type}
         name={name}
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
-        className='custom-form-input'
+        className={`custom-form-input ${error && 'error-active'}`}
       />
       {error && <p className='helperError'>{error}</p>}
-    </>
+    </div>
   );
 };
 

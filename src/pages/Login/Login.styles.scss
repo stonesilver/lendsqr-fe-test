@@ -73,6 +73,24 @@
           width: 80%;
         }
 
+        &-password-field {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          &-toggle-password-type {
+            position: absolute;
+            right: $base;
+            font-size: $xs;
+            font-weight: 600;
+            color: $lightBlue;
+            letter-spacing: 1px;
+            user-select: none;
+            cursor: pointer;
+          }
+        }
+
         &-forgot-password {
           font-size: $xs;
           font-weight: 600;
