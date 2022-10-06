@@ -1,0 +1,71 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.user-login {
+  margin: 2rem;
+
+  @include md {
+    margin: 4rem;
+  }
+
+  &-content {
+    display: flex;
+    gap: 4.3rem;
+    margin-top: 2.5rem;
+
+    @include md {
+      margin-top: 4.5rem;
+    }
+
+    &-left {
+      flex: 1;
+      display: none;
+      height: fit-content;
+
+      @include md {
+        display: block;
+      }
+
+      &-illustration {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &-form {
+      flex: 1;
+      border: 1px solid $fontColor;
+      text-align: center;
+      padding: 0 1rem;
+      min-height: 50vh;
+
+      @include md {
+        text-align: left;
+        padding: 0 3rem;
+      }
+
+      &-header {
+        font-weight: 700;
+        font-size: $xlg;
+        color: $darkBlue;
+        padding: 0;
+        margin: 0;
+
+        @include md {
+          font-size: $xxlg;
+        }
+      }
+
+      &-description {
+        font-size: $md;
+        padding: 0;
+        margin: $tiny 0 3.75rem 0;
+
+        @include lg {
+          font-size: $base;
+        }
+      }
+    }
+  }
+}

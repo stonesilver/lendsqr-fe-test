@@ -1,7 +1,12 @@
+@import 'scss/_sass-variables.scss';
+
 body {
   font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $white;
+  color: $fontColor;
+  font-size: $md;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
