@@ -16,7 +16,7 @@ const NavBar = () => {
       </div>
       <div className='navbar-column-two'>
         <p className='navbar-column-two-docs'>Docs</p>
-        <NotificationIcon className='.navbar-column-two-nitification-icon' />
+        <NotificationIcon className='navbar-column-two-nitification-icon' />
         <User />
       </div>
     </div>
