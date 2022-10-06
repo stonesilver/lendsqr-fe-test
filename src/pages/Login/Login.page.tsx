@@ -1,11 +1,13 @@
+import Input from 'components/base/Input/Input.component';
 import * as React from 'react';
 import './Login.styles.scss';
 
 const Login = () => {
   const [formData, setFormData] = React.useState({
-    username: '',
+    email: '',
     password: '',
   });
+  const [showPassword, setShowPassword] = React.useState(false);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -34,7 +36,28 @@ const Login = () => {
             Enter details to login.
           </p>
 
-          
+          <div className='user-login-content-form-container'>
+            {/* Email Input */}
+            <Input
+              value={formData.email}
+              handleChange={handleChange}
+              placeholder='Email'
+              name='email'
+            />
+
+            {/* Password input */}
+            <Input
+              value={formData.password}
+              handleChange={handleChange}
+              placeholder='Password'
+              name='password'
+              type={showPassword ? 'text' : 'password'}
+            />
+
+            <p className='user-login-content-form-container-forgot-password'>
+              Forgot PASSWORD?
+            </p>
+          </div>
         </form>
       </div>
     </div>

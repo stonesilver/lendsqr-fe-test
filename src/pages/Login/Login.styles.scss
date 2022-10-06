@@ -66,6 +66,23 @@
           font-size: $base;
         }
       }
+
+      &-container {
+        display: flex;
+        flex-direction: column;
+        gap: $xlg;
+
+        @include md {
+          width: 80%;
+        }
+
+        &-forgot-password {
+          font-size: $xs;
+          font-weight: 600;
+          color: $lightBlue;
+          letter-spacing: 1px;
+        }
+      }
     }
   }
 }

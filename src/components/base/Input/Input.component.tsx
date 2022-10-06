@@ -1,4 +1,4 @@
-import React from 'react';
+import './Input.styles.scss';
 
 interface InputProps {
   type?: string;
@@ -6,6 +6,7 @@ interface InputProps {
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  error?: string;
 }
 
 const Input = ({
@@ -14,15 +15,25 @@ const Input = ({
   value,
   handleChange,
   placeholder,
+  error,
 }: InputProps) => {
   return (
-    <input
-      type={type}
-      name={name}
-      onChange={handleChange}
-      placeholder={placeholder}
-    />
+    <>
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={handleChange}
+        placeholder={placeholder}
+        className='custom-form-input'
+      />
+      {error && <p className='helperError'>{error}</p>}
+    </>
   );
+};
+
+Input.defaultProps = {
+  type: 'text',
 };
 
 export default Input;
