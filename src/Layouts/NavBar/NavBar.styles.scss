@@ -1,0 +1,62 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.25rem;
+  background-color: $white;
+  padding: 1.2rem;
+  box-sizing: border-box;
+
+  @include sm {
+    height: 5.25rem;
+    padding: 1.875rem;
+  }
+
+  @include xl {
+    height: 6.25rem;
+  }
+
+  &-column-one {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-brand-logo {
+      width: 6rem;
+      height: 1.5rem;
+      object-fit: contain;
+
+      @include sm {
+        width: 9rem;
+        height: 1.875rem;
+      }
+    }
+  }
+
+  &-column-two {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: $base;
+    font-size: $md;
+
+    @include sm {
+      font-size: $base;
+    }
+
+    @include lg {
+      flex: 1;
+      gap: 2.1rem;
+    }
+
+    &-docs {
+      text-decoration: underline;
+      color: $darkBlue;
+      cursor: pointer;
+    }
+  }
+}

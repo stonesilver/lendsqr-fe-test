@@ -48,25 +48,26 @@ const Login = () => {
 
     if (email && password) {
       setLocalStorage(formData);
-      navigate('/dashboard');
+      navigate('/users');
     }
   };
 
   return (
     <div className='user-login'>
       <div className='user-login-brand-logo'>
-        <img src='/img/brand-logo.png' alt='brand-logo' className='' />
+        <img src='/img/brand-logo.webp' alt='brand-logo' className='' />
       </div>
 
       <div className='user-login-content'>
         {/* left illustrustion on larger screens */}
         <div className='user-login-content-left'>
           <img
-            src='img/sign-in-illustration.png'
+            src='/img/sign-in-illustration.webp'
             alt='login-illustration'
             className='user-login-content-left-illustration'
           />
         </div>
+        
         {/* sign in form */}
         <form className='user-login-content-form' onSubmit={handleSubmit}>
           <p className='user-login-content-form-header'>Welcome!</p>
