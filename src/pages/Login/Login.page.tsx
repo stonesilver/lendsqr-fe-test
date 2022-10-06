@@ -14,6 +14,11 @@ const Login = () => {
     setFormData((prevS) => ({ ...prevS, [name]: value }));
   };
 
+  const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert(JSON.stringify(formData));
+  };
+
   return (
     <div className='user-login'>
       <div className='user-login-brand-logo'>
@@ -30,7 +35,7 @@ const Login = () => {
           />
         </div>
         {/* sign in form */}
-        <form className='user-login-content-form'>
+        <form className='user-login-content-form' onSubmit={handleSubmit}>
           <p className='user-login-content-form-header'>Welcome!</p>
           <p className='user-login-content-form-description'>
             Enter details to login.
@@ -57,6 +62,13 @@ const Login = () => {
             <p className='user-login-content-form-container-forgot-password'>
               Forgot PASSWORD?
             </p>
+
+            <button
+              type='submit'
+              className='user-login-content-form-container-submit-btn'
+            >
+              LOG IN
+            </button>
           </div>
         </form>
       </div>

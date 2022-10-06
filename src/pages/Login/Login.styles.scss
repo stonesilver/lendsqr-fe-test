@@ -4,23 +4,23 @@
 .user-login {
   margin: 2rem;
 
-  @include md {
+  @include lg {
     margin: 4rem;
   }
 
   &-content {
     display: flex;
-    gap: 4.3rem;
-    margin-top: 2.5rem;
+    align-items: flex-end;
+    gap: 1.5rem;
+    margin-top: 4.5rem;
 
-    @include md {
-      margin-top: 4.5rem;
+    @include lg {
+      gap: 4.3rem;
     }
 
     &-left {
       flex: 1;
       display: none;
-      height: fit-content;
 
       @include md {
         display: block;
@@ -35,10 +35,7 @@
 
     &-form {
       flex: 1;
-      border: 1px solid $fontColor;
       text-align: center;
-      padding: 0 1rem;
-      min-height: 50vh;
 
       @include md {
         text-align: left;
@@ -72,7 +69,7 @@
         flex-direction: column;
         gap: $xlg;
 
-        @include md {
+        @include lg {
           width: 80%;
         }
 
@@ -81,6 +78,19 @@
           font-weight: 600;
           color: $lightBlue;
           letter-spacing: 1px;
+          text-align: left;
+        }
+
+        &-submit-btn {
+          width: 100%;
+          height: 3rem;
+          background-color: $lightBlue;
+          color: $white;
+          font-size: $md;
+          font-weight: 600;
+          border-radius: 8px;
+          letter-spacing: 1px;
+          border: none;
         }
       }
     }
