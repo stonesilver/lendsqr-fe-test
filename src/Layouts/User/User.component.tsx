@@ -1,12 +1,12 @@
-import { useState, useRef } from 'react';
+import * as React from 'react';
 import { useLocalStorage } from 'Hooks/useLocalStorage';
 import { ReactComponent as CaretDownIcon } from 'assets/svg/caret-down.svg';
 import { useNavigate } from 'react-router-dom';
 import './User.styles.scss';
 
 const User = () => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
   const toggleDropdown = () => {
@@ -15,6 +15,10 @@ const User = () => {
     setTimeout(() => {
       ref.current && ref.current.focus();
     }, 100);
+  };
+
+  const closeDropdown = () => {
+    setOpen(false);
   };
 
   const { getLocalStorage, removeLocalStorage } = useLocalStorage('user');
@@ -42,7 +46,7 @@ const User = () => {
         <div
           ref={ref}
           tabIndex={1}
-          onBlur={toggleDropdown}
+          onBlur={closeDropdown}
           className='user-dropdown-dropdown'
         >
           <p className='user-dropdown-dropdown-email'>

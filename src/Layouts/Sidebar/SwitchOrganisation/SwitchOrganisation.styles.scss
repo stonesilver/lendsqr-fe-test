@@ -1,0 +1,34 @@
+@import 'scss/_sass-variables.scss';
+
+.switch-organisation {
+  position: relative;
+  cursor: pointer;
+
+  &-contents {
+    display: flex;
+    align-items: center;
+    gap: $tiny;
+  }
+
+  &-drop-down {
+    position: absolute;
+    top: 2.5rem;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 6rem;
+    background-color: $white;
+    border: 1px solid $borderColor;
+    padding: $tiny;
+    animation: zoom 0.3s ease-in-out;
+
+    &:focus {
+      border: 1px solid $borderColor;
+      outline: none;
+    }
+
+    &-items {
+      margin: 0;
+      padding: 0.25rem 0;
+    }
+  }
+}

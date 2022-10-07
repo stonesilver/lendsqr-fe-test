@@ -9,7 +9,9 @@ const AppLayout = () => {
       <NavBar />
       <div className='app-layout-sidebar-content'>
         <Sidebar />
-        <Outlet />
+        <div className='app-layout-sidebar-content-contents'>
+          <Outlet />
+        </div>
       </div>
     </div>
   );
