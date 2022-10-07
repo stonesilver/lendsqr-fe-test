@@ -6,6 +6,7 @@
   flex-wrap: nowrap;
   gap: 1rem;
   max-width: calc(100vw - 2.5rem);
+  //   height: 10rem;
   overflow-x: auto;
 
   @include md {
@@ -23,11 +24,17 @@
   .statistics-card {
     flex: 1;
     min-width: 10rem;
-    height: 7rem;
+    height: 8rem;
     border: 1px solid #213f7d0f;
     border-radius: 4px;
     box-shadow: 3px 5px 20px #0000000a;
     padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover .statistics-card-icon {
+      transform: scale(1.1);
+    }
 
     @include md {
       padding: 1.25rem;
@@ -35,11 +42,12 @@
 
     @include md {
       padding: 1.25rem;
+      min-width: 12rem;
+      height: 10rem;
     }
 
     @include lg {
       min-width: auto;
-      height: 10rem;
       padding: 1.875rem;
     }
 
