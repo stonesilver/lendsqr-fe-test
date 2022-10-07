@@ -54,9 +54,9 @@
     width: 15rem;
     min-height: 8rem;
     border: 1px solid $borderColor;
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 5px;
     animation: zoom 0.3s ease-in-out;
+    box-shadow: 0 0 5px $borderColor;
 
     &:focus {
       border: 1px solid $borderColor;
@@ -69,10 +69,14 @@
       top: 4.5rem;
     }
 
+    &-email {
+      padding: 0 1rem;
+    }
+
     &-item {
       font-weight: 500;
       margin: 0;
-      padding: $xs 0;
+      padding: $xs 1rem;
 
       &:hover {
         background-color: $borderColor;

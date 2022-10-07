@@ -1,3 +1,5 @@
+@import 'scss/_media-query-mixins.scss';
+
 .app-layout {
   display: flex;
   flex-direction: column;
@@ -9,7 +11,19 @@
 
     &-contents {
       flex: 1;
-      border: 1px solid gray;
+      padding: 1.25rem;
+
+      @include sm {
+        padding: 1.5rem;
+      }
+
+      @include lg {
+        padding: 2.5rem;
+      }
+
+      @include xl {
+        padding: 3.75rem;
+      }
     }
   }
 }

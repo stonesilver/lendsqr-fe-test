@@ -52,10 +52,16 @@ const User = () => {
           <p className='user-dropdown-dropdown-email'>
             {getLocalStorage?.email}
           </p>
-          <p className='user-dropdown-dropdown-profile user-dropdown-dropdown-item'>
+          <p
+            className='user-dropdown-dropdown-profile user-dropdown-dropdown-item'
+            onClick={closeDropdown}
+          >
             Profile
           </p>
-          <p className='user-dropdown-dropdown-setting user-dropdown-dropdown-item'>
+          <p
+            className='user-dropdown-dropdown-setting user-dropdown-dropdown-item'
+            onClick={closeDropdown}
+          >
             Settings
           </p>
           <p
