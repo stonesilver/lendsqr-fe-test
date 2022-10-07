@@ -3,11 +3,15 @@
 
 .app-search {
   display: none;
-  width: 25rem;
+  width: 20rem;
   height: 2.5rem;
   border: 1px solid $borderColor;
   border-radius: 8px;
   overflow: hidden;
+
+  @include lg {
+    width: 25rem;
+  }
 
   &-input {
     flex: 1;
