@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { ReactComponent as OrganizationIcon } from 'assets/svg/home.svg';
+import { ReactComponent as OrganizationIcon } from 'assets/svg/briefcase.svg';
 import { ReactComponent as ChevronIcon } from 'assets/svg/chevron-down.svg';
 import './SwitchOrganisation.styles.scss';
 

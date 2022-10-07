@@ -1,0 +1,10 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.Nav-link-category {
+  margin-top: 1.5rem;
+
+  @include md {
+    margin-top: 2.5rem;
+  }
+}

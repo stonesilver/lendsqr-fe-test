@@ -1,3 +1,4 @@
+import * as React from 'react';
 import './Input.styles.scss';
 
 interface InputProps {
@@ -9,14 +10,14 @@ interface InputProps {
   error?: string;
 }
 
-const Input = ({
+const Input: React.FC<InputProps> = ({
   type,
   name,
   value,
   handleChange,
   placeholder,
   error,
-}: InputProps) => {
+}) => {
   return (
     <div>
       <input

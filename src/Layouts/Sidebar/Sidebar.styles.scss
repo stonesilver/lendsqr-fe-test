@@ -8,7 +8,7 @@
   width: 100%;
   height: 100%;
   border: 1px solid $borderColor;
-  padding: 1.5rem 1.125rem;
+  padding: 1.5rem 0;
 
   @include md {
     font-size: $md;
@@ -22,6 +22,6 @@
   @include lg {
     font-size: $base;
     width: 17.69rem;
-    padding: 2.4rem 1.875rem;
+    padding: 2.4rem 0;
   }
 }

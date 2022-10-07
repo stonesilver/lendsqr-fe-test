@@ -1,13 +1,25 @@
+@import 'scss/_media-query-mixins.scss';
 @import 'scss/_sass-variables.scss';
 
 .switch-organisation {
   position: relative;
+  padding: 0 1.125rem;
+  margin-bottom: 2.25rem;
   cursor: pointer;
+
+  @include lg {
+    padding: 0 1.875rem;
+    margin-bottom: 3.25rem;
+  }
 
   &-contents {
     display: flex;
     align-items: center;
     gap: $tiny;
+
+    &-text {
+      margin: 0;
+    }
   }
 
   &-drop-down {
