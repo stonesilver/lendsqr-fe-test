@@ -1,10 +1,13 @@
-import { Outlet } from 'react-router-dom';
 import NavBar from 'Layouts/NavBar/NavBar.component';
 import './AppLayout.styles.scss';
 import Sidebar from 'Layouts/Sidebar/Sidebar.component';
+import { Outlet, Navigate } from 'react-router-dom';
+import { useLocalStorage } from 'Hooks/useLocalStorage';
 
 const AppLayout = () => {
-  return (
+  const { getLocalStorage } = useLocalStorage('user');
+
+  return getLocalStorage ? (
     <div className='app-layout'>
       <NavBar />
       <div className='app-layout-sidebar-content'>
@@ -14,6 +17,8 @@ const AppLayout = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <Navigate to='auth/sign-in' />
   );
 };
 
