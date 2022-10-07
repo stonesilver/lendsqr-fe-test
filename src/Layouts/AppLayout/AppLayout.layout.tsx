@@ -18,7 +18,7 @@ const AppLayout = () => {
       </div>
     </div>
   ) : (
-    <Navigate to='auth/sign-in' />
+    <Navigate to='auth/sign-in' replace />
   );
 };
 

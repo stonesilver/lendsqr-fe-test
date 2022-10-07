@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Input from 'components/base/Input/Input.component';
 import { useLocalStorage } from 'Hooks/useLocalStorage';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import './Login.styles.scss';
 
 const Login = () => {
@@ -14,7 +14,7 @@ const Login = () => {
     password: '',
   });
   const [showPassword, setShowPassword] = React.useState(false);
-  const { setLocalStorage } = useLocalStorage('user');
+  const { getLocalStorage, setLocalStorage } = useLocalStorage('user');
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +52,9 @@ const Login = () => {
     }
   };
 
-  return (
+  return getLocalStorage ? (
+    <Navigate to='/users' replace />
+  ) : (
     <div className='user-login'>
       <div className='user-login-brand-logo'>
         <img src='/img/brand-logo.webp' alt='brand-logo' className='' />
@@ -67,7 +69,7 @@ const Login = () => {
             className='user-login-content-left-illustration'
           />
         </div>
-        
+
         {/* sign in form */}
         <form className='user-login-content-form' onSubmit={handleSubmit}>
           <p className='user-login-content-form-header'>Welcome!</p>
