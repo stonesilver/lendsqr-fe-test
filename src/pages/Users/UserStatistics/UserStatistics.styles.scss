@@ -1,0 +1,69 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.user-statistics {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  max-width: calc(100vw - 2.5rem);
+  overflow-x: auto;
+
+  @include md {
+    max-width: calc(100vw - 17.69rem);
+  }
+
+  @include lg {
+    max-width: calc(100vw - 22.69rem);
+  }
+
+  @include xl {
+    max-width: calc(100vw - 25.19rem);
+  }
+
+  .statistics-card {
+    flex: 1;
+    min-width: 10rem;
+    height: 7rem;
+    border: 1px solid #213f7d0f;
+    border-radius: 4px;
+    box-shadow: 3px 5px 20px #0000000a;
+    padding: 1rem;
+
+    @include md {
+      padding: 1.25rem;
+    }
+
+    @include md {
+      padding: 1.25rem;
+    }
+
+    @include lg {
+      min-width: auto;
+      height: 10rem;
+      padding: 1.875rem;
+    }
+
+    &-title {
+      font-size: $xs;
+      font-weight: 500;
+      margin: 3px 0 0 0;
+
+      @include md {
+        font-size: $md;
+        margin: 6px 0 0 0;
+      }
+    }
+
+    &-value {
+      font-size: $base;
+      font-weight: 600;
+      color: $darkBlue;
+      margin: 6px 0 0 0;
+
+      @include md {
+        font-size: $lg;
+        margin: $tiny 0 0 0;
+      }
+    }
+  }
+}

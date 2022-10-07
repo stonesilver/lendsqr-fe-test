@@ -1,9 +1,13 @@
-import './Users.styles.scss'
+import './Users.styles.scss';
+import UserStatistics from './UserStatistics/UserStatistics.component';
 
 const Users = () => {
   return (
-    <div>Users</div>
-  )
-}
+    <div className='users-page'>
+      <header className='users-page-header'>Users</header>
+      <UserStatistics />
+    </div>
+  );
+};
 
-export default Users
+export default Users;
