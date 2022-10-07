@@ -10,7 +10,7 @@ interface Props {
 const NavLink: React.FC<Props> = ({ svgSrc, text }) => {
   return (
     <Link
-      to={text.toLocaleLowerCase().replace(' ', '-')}
+      to={text.toLocaleLowerCase().replaceAll(' ', '-')}
       className='side-nav-link'
     >
       <img src={svgSrc} alt={text} className='side-nav-link-icon' />

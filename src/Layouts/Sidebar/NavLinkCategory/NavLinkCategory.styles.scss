@@ -1,10 +1,26 @@
 @import 'scss/_media-query-mixins.scss';
 @import 'scss/_sass-variables.scss';
 
-.Nav-link-category {
+.nav-link-category {
   margin-top: 1.5rem;
 
   @include md {
     margin-top: 2.5rem;
+  }
+
+  &-heading {
+    font-size: $xs;
+    font-weight: 500;
+    margin-bottom: 1.125rem;
+    padding: 0 1.125rem;
+
+    @include sm {
+      font-size: $xs;
+      margin-bottom: 1.25rem;
+    }
+
+    @include lg {
+      padding: 0 1.875rem;
+    }
   }
 }

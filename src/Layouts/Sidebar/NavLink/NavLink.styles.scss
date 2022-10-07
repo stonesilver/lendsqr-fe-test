@@ -7,14 +7,21 @@
   gap: $tiny;
   text-decoration: none;
   color: inherit;
-  padding: 0 1.125rem;
+  padding: 0.5rem 1.125rem;
 
   @include lg {
-    padding: 0 1.875rem;
+    padding: 0.5rem 1.875rem;
   }
 
   &:hover {
     font-weight: 500;
+  }
+
+  &-icon {
+    width: $lg;
+    height: $lg;
+    object-fit: contain;
+    // border: 1px solid red;
   }
 
   &-text {
