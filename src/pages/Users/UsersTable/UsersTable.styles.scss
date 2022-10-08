@@ -2,6 +2,7 @@
 @import 'scss/_sass-variables.scss';
 
 .users-table {
+  position: relative;
   background-color: $white;
   border: 1px solid #213f7d0f;
   box-shadow: 3px 5px 20px $boxShadowColor;
@@ -42,6 +43,12 @@
         @include md {
           font-size: $xs;
           font-weight: 600;
+        }
+
+        &-icon {
+          width: 0.75rem;
+          height: 0.75rem;
+          cursor: pointer;
         }
       }
     }

@@ -26,7 +26,7 @@ const SwitchOrganisation = () => {
       {/* dropdown */}
       {open && (
         <div
-          tabIndex={1}
+          tabIndex={-1}
           ref={ref}
           onBlur={() => setOpen(false)}
           className='switch-organisation-drop-down'

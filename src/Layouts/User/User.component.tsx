@@ -45,7 +45,7 @@ const User = () => {
       {open && (
         <div
           ref={ref}
-          tabIndex={1}
+          tabIndex={-1}
           onBlur={closeDropdown}
           className='user-dropdown-dropdown'
         >

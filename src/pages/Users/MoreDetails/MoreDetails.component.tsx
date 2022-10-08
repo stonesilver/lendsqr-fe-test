@@ -43,7 +43,7 @@ const MoreDetails: React.FC = () => {
       {open && (
         <div
           ref={ref}
-          tabIndex={1}
+          tabIndex={-1}
           className='more-details-dropdown'
           onBlur={closeDropdown}
         >
