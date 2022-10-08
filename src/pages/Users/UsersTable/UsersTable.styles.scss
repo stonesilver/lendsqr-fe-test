@@ -1,0 +1,96 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.users-table {
+  background-color: $white;
+  border: 1px solid $borderColor;
+  padding: 1rem;
+  margin-top: 2rem;
+  max-width: calc(100vw - 2.5rem);
+  overflow-x: auto;
+
+  @include md {
+    max-width: calc(100vw - 17.69rem);
+  }
+
+  @include lg {
+    max-width: calc(100vw - 22.69rem);
+  }
+
+  @include xl {
+    max-width: calc(100vw - 25.19rem);
+  }
+
+  .users-table-container {
+    width: 100%;
+    border-collapse: collapse;
+
+    &-head {
+      &-text {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.2rem;
+        width: max-content;
+        font-size: $tiny;
+        font-weight: 600;
+        text-align: left;
+        padding-bottom: $xs;
+        margin-right: 5px;
+
+        @include md {
+          font-size: $xs;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &-row {
+      border-bottom: 1px solid $borderColor;
+
+      &:last-child {
+        border-bottom: 1px solid transparent;
+      }
+
+      &-description {
+        padding: 0.4rem;
+
+        .description-text {
+          font-size: $xs;
+          min-width: max-content;
+          margin: 0;
+          padding: 0.1rem 0.5rem;
+
+          @include md {
+            font-size: $md;
+          }
+        }
+
+        &-inactive {
+          width: fit-content;
+          background-color: $borderColor;
+          border-radius: 10px;
+        }
+
+        &-pending {
+          width: fit-content;
+          background-color: #e9b2001a;
+          color: $sunYellow;
+          border-radius: 10px;
+        }
+
+        &-active {
+          width: fit-content;
+          color: $green;
+          background-color: #39cd621a;
+          border-radius: 10px;
+        }
+        &-blacklisted {
+          width: fit-content;
+          color: $error;
+          background-color: #e4033b1a;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
