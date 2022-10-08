@@ -1,0 +1,30 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.filter-custom-select {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &-title {
+    font-weight: 500;
+  }
+
+  &-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid $borderColor;
+    overflow: hidden;
+
+    &-input {
+      flex: 1;
+    }
+  }
+
+  &-options {
+    display: none;
+  }
+}

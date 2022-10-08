@@ -1,4 +1,5 @@
 import * as React from 'react';
+import CustomSelect from './CustomSelect/CustomSelect.component';
 import './FilterUsers.styles.scss';
 
 interface FilterProps {
@@ -13,7 +14,16 @@ const FilterUsers = React.forwardRef<HTMLDivElement, FilterProps>(
         tabIndex={-1}
         onBlur={props.hideFilter}
         className='filter-users'
-      ></div>
+      >
+        <CustomSelect
+          value='yes'
+          name='yes'
+          handleChange={() => {}}
+          title='yes'
+          options={['yes']}
+          placeholder='yes'
+        />
+      </div>
     );
   }
 );
