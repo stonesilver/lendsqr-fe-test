@@ -2,7 +2,7 @@ import { ReactComponent as FilterIcon } from 'assets/svg/filter.svg';
 import { ReactComponent as MoreIcon } from 'assets/svg/more.svg';
 import './UsersTable.styles.scss';
 
-const head = [
+const head: string[] = [
   'ORGANISATION',
   'USERNAME',
   'EMAIL',
@@ -11,7 +11,7 @@ const head = [
   'STATUS',
 ];
 
-const td = [
+const td: (string | JSX.Element)[] = [
   'Lendsqr',
   'Adedeji',
   'adedeji@lendsqr.com',
@@ -27,7 +27,7 @@ const UsersTable = () => {
       <table id='users-table' className='users-table-container'>
         <thead className='users-table-container-head'>
           <tr>
-            {head.map((item) => (
+            {head.map((item: string) => (
               <th key={item}>
                 <div className='users-table-container-head-text'>
                   {item} <FilterIcon />
@@ -38,25 +38,27 @@ const UsersTable = () => {
         </thead>
 
         <tbody>
-          {[...Array(15).keys()].map((item) => (
-            <tr key={item} className='users-table-container-row'>
-              {td.map((item, index) => (
-                <td
-                  key={item}
-                  className={`users-table-container-row-description`}
-                >
-                  <p
-                    className={`description-text ${
-                      index === 5 &&
-                      'users-table-container-row-description-inactive'
-                    }`}
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
+            (item: number) => (
+              <tr key={item} className='users-table-container-row'>
+                {td.map((desc: string | JSX.Element, index) => (
+                  <td
+                    key={index}
+                    className={`users-table-container-row-description`}
                   >
-                    {item}
-                  </p>
-                </td>
-              ))}
-            </tr>
-          ))}
+                    <p
+                      className={`description-text ${
+                        index === 5 &&
+                        'users-table-container-row-description-inactive'
+                      }`}
+                    >
+                      {desc}
+                    </p>
+                  </td>
+                ))}
+              </tr>
+            )
+          )}
         </tbody>
       </table>
     </div>
