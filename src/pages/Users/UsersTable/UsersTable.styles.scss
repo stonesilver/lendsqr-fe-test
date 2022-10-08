@@ -4,7 +4,7 @@
 .users-table {
   background-color: $white;
   border: 1px solid #213f7d0f;
-  box-shadow: 3px 5px 20px #0000000a;
+  box-shadow: 3px 5px 20px $boxShadowColor;
   border-radius: 4px;
   padding: 1rem;
   margin-top: 2rem;

@@ -26,7 +26,7 @@
     height: 8rem;
     border: 1px solid #213f7d0f;
     border-radius: 4px;
-    box-shadow: 3px 5px 20px #0000000a;
+    box-shadow: 3px 5px 20px $boxShadowColor;
     padding: 1rem;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;

@@ -3,6 +3,20 @@
 
 * {
   box-sizing: border-box;
+
+  // customizing the scroll bar
+  ::-webkit-scrollbar {
+    width: 0.3em;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $borderColor;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $fontColor;
+    border-radius: 3px;
+  }
 }
 
 body {

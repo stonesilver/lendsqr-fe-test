@@ -16,7 +16,7 @@
     min-height: 8.125rem;
     background-color: $white;
     border: 1px solid $borderColor;
-    box-shadow: 3px 5px 20px #0000000a;
+    box-shadow: 3px 5px 20px $boxShadowColor;
     border-radius: 4px;
     overflow: hidden;
     animation: zoom 0.3s ease-in-out;

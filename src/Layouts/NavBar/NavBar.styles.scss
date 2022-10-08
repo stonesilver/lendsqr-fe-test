@@ -8,7 +8,7 @@
   height: 4.25rem;
   background-color: $white;
   padding: 1.2rem;
-  box-shadow: 3px 0px 20px #0000000a;
+  box-shadow: 3px 0px 20px $boxShadowColor;
 
   @include sm {
     height: 5.25rem;
