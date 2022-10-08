@@ -38,8 +38,8 @@ const MoreDetails: React.FC = () => {
   };
 
   return (
-    <div className='more-details' onClick={openDropdown}>
-      <MoreIcon className='more-details-icon' />
+    <div className='more-details'>
+      <MoreIcon className='more-details-icon' onClick={openDropdown} />
       {open && (
         <div
           ref={ref}
@@ -48,7 +48,11 @@ const MoreDetails: React.FC = () => {
           onBlur={closeDropdown}
         >
           {list.map(({ icon, text }) => (
-            <div key={text} className='more-details-dropdown-list'>
+            <div
+              key={text}
+              className='more-details-dropdown-list'
+              onClick={closeDropdown}
+            >
               {icon}
               <p className='more-details-dropdown-list-text'>{text}</p>
             </div>

@@ -41,19 +41,23 @@ const UsersTable = () => {
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
             (item: number) => (
               <tr key={item} className='users-table-container-row'>
-                {td.map((desc: string | JSX.Element, index) => (
+                {td.map((desc: string | JSX.Element, index: number) => (
                   <td
                     key={index}
                     className={`users-table-container-row-description`}
                   >
-                    <p
-                      className={`description-text ${
-                        index === 5 &&
-                        'users-table-container-row-description-inactive'
-                      }`}
-                    >
-                      {desc}
-                    </p>
+                    {index === 6 ? (
+                      desc
+                    ) : (
+                      <p
+                        className={`description-text ${
+                          index === 5 &&
+                          'users-table-container-row-description-inactive'
+                        }`}
+                      >
+                        {desc}
+                      </p>
+                    )}
                   </td>
                 ))}
               </tr>

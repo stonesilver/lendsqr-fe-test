@@ -19,6 +19,7 @@
     box-shadow: 3px 5px 20px #0000000a;
     border-radius: 4px;
     overflow: hidden;
+    animation: zoom 0.3s ease-in-out;
     z-index: 1;
 
     &:focus {
