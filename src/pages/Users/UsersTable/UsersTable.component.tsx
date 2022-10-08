@@ -1,5 +1,5 @@
 import { ReactComponent as FilterIcon } from 'assets/svg/filter.svg';
-import { ReactComponent as MoreIcon } from 'assets/svg/more.svg';
+import MoreDetails from '../MoreDetails/MoreDetails.component';
 import './UsersTable.styles.scss';
 
 const head: string[] = [
@@ -18,7 +18,7 @@ const td: (string | JSX.Element)[] = [
   '08078903721',
   'May 15, 2020 10:00 AM',
   'Inactive',
-  <MoreIcon />,
+  <MoreDetails />,
 ];
 
 const UsersTable = () => {
