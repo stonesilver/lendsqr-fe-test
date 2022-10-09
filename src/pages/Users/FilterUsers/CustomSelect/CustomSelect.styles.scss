@@ -14,16 +14,20 @@
   &-selected {
     display: flex;
     justify-content: space-between;
-    position: relative;
-    display: flex;
     align-items: center;
     height: 2.5rem;
+    background-color: $white;
     border-radius: 8px;
     border: 1px solid $borderColor;
     padding: 0 1.25rem;
     overflow: hidden;
     cursor: pointer;
     user-select: none;
+  }
+
+  &-open {
+    border-radius: 8px 8px 0 0;
+    border-bottom: none;
   }
 
   &-options {
@@ -33,12 +37,14 @@
     list-style: none;
     width: 100%;
     min-height: 7rem;
+    background-color: $white;
     border: 1px solid $borderColor;
     border-top: none;
     box-shadow: 0 0 5px $boxShadowColor;
     border-radius: 0 0 8px 8px;
     margin: 0;
     padding: 0;
+    animation: zoom 0.3s ease-in-out;
     z-index: 1;
 
     &-option {

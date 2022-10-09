@@ -20,9 +20,13 @@ const CustomSelect: React.FC<SelectInterface> = ({
   placeholder,
 }) => {
   const [open, setOpen] = React.useState<boolean>(false);
+  const ref = React.useRef<HTMLUListElement>(null);
 
   const toggleOptions = () => {
     setOpen((prevS) => !prevS);
+    setTimeout(() => {
+      ref.current && ref.current.focus();
+    }, 100);
   };
 
   const handleChange = (value: string) => {
@@ -36,7 +40,9 @@ const CustomSelect: React.FC<SelectInterface> = ({
       <div
         aria-haspopup='listbox'
         aria-expanded={open}
-        className='filter-custom-select-selected'
+        className={`filter-custom-select-selected ${
+          open && 'filter-custom-select-open'
+        }`}
         onClick={toggleOptions}
       >
         {value || placeholder}
@@ -44,6 +50,8 @@ const CustomSelect: React.FC<SelectInterface> = ({
       </div>
       {open && (
         <ul
+          ref={ref}
+          onBlur={toggleOptions}
           className='filter-custom-select-options'
           role='listbox'
           aria-activedescendant={value}

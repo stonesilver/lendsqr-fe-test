@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useClickOutside} from 'Hooks/useClickOutside'
 
 interface TableProps {
   children: React.ReactNode;

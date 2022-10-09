@@ -5,6 +5,9 @@
   position: absolute;
   top: 3rem;
   left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
   width: 16.875rem;
   min-height: 28rem;
   background-color: $white;

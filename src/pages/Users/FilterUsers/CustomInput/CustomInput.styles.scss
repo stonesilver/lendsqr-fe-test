@@ -1,0 +1,25 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.filter-custom-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &-title {
+    font-weight: 500;
+  }
+
+  &-input {
+    height: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid $borderColor;
+    outline: none;
+    padding: 0 1.25rem;
+
+    &[type='date']::-webkit-calendar-picker-indicator {
+      background: url(../../../../assets/svg/calendar.svg);
+      cursor: pointer;
+    }
+  }
+}
