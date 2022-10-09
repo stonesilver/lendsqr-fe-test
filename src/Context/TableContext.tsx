@@ -7,6 +7,8 @@ interface TableProps {
 
 interface ContextProps {
   showFilter: () => void;
+  closeFilter: () => void;
+  resetFilterData: () => void;
   ref: any;
   visible: boolean;
   filterData: FilterInterface;
@@ -25,19 +27,29 @@ interface FilterInterface {
 
 const TableContext = React.createContext({} as ContextProps);
 
+const initData: FilterInterface = {
+  organisation: '',
+  username: '',
+  email: '',
+  date: '',
+  phone: '',
+  status: '',
+};
+
 export const TableProvider: React.FC<TableProps> = ({ children }) => {
-  const [filterData, setFilterData] = React.useState<FilterInterface>({
-    organisation: '',
-    username: '',
-    email: '',
-    date: '',
-    phone: '',
-    status: '',
-  });
+  const [filterData, setFilterData] = React.useState<FilterInterface>(initData);
   const { ref, visible, setVisible } = useClickOutside();
 
   const showFilter = () => {
     setVisible(true);
+  };
+
+  const closeFilter = () => {
+    setVisible(false);
+  };
+
+  const resetFilterData = () => {
+    setFilterData(initData);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,6 +70,8 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
         handleChange,
         selectChange,
         visible,
+        closeFilter,
+        resetFilterData,
       }}
     >
       {children}

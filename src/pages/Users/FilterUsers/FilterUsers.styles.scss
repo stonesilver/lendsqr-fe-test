@@ -25,4 +25,32 @@
     border: 1px solid $borderColor;
     outline: none;
   }
+
+  &-reset-filter-btns {
+    display: flex;
+    gap: $md;
+
+    &-action-btn {
+      flex: 1;
+      height: 2.5rem;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &-reset {
+      background-color: $white;
+      border: 1px solid $borderColor;
+    }
+
+    &-filter {
+      background-color: $lightBlue;
+      color: $white;
+    }
+  }
 }
