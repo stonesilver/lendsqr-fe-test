@@ -1,5 +1,6 @@
 import * as React from 'react';
 import CustomSelect from './CustomSelect/CustomSelect.component';
+import TableContext from 'Context/TableContext';
 import './FilterUsers.styles.scss';
 
 interface FilterProps {
@@ -8,6 +9,7 @@ interface FilterProps {
 
 const FilterUsers = React.forwardRef<HTMLDivElement, FilterProps>(
   (props, ref) => {
+    const { filterData, selectChange } = React.useContext(TableContext);
     return (
       <div
         ref={ref}
@@ -16,12 +18,12 @@ const FilterUsers = React.forwardRef<HTMLDivElement, FilterProps>(
         className='filter-users'
       >
         <CustomSelect
-          value='yes'
-          name='yes'
-          handleChange={() => {}}
-          title='yes'
-          options={['yes']}
-          placeholder='yes'
+          value={filterData.organisation}
+          name='organisation'
+          selectChange={selectChange}
+          title='Organization'
+          options={['LendSqr', 'FastPay', 'Borrow Me', 'Pay Later']}
+          placeholder='Select'
         />
       </div>
     );

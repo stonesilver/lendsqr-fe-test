@@ -11,6 +11,7 @@ interface ContextProps {
   ref: any;
   filterData: FilterInterface;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  selectChange: (name: string, value: string) => void;
 }
 
 interface FilterInterface {
@@ -44,7 +45,7 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
   };
 
   const hideFilter = () => {
-    setOpen(false);
+    // setOpen(false);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,9 +53,21 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
     setFilterData((prevS) => ({ ...prevS, [name]: value }));
   };
 
+  const selectChange = (name: string, value: string) => {
+    setFilterData((prevS) => ({ ...prevS, [name]: value }));
+  };
+
   return (
     <TableContext.Provider
-      value={{ open, showFilter, hideFilter, ref, filterData, handleChange }}
+      value={{
+        open,
+        showFilter,
+        hideFilter,
+        ref,
+        filterData,
+        handleChange,
+        selectChange,
+      }}
     >
       {children}
     </TableContext.Provider>

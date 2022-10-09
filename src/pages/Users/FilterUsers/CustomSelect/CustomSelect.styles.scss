@@ -2,6 +2,7 @@
 @import 'scss/_sass-variables.scss';
 
 .filter-custom-select {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -10,21 +11,47 @@
     font-weight: 500;
   }
 
-  &-input-container {
+  &-selected {
+    display: flex;
+    justify-content: space-between;
     position: relative;
     display: flex;
     align-items: center;
     height: 2.5rem;
     border-radius: 8px;
     border: 1px solid $borderColor;
+    padding: 0 1.25rem;
     overflow: hidden;
-
-    &-input {
-      flex: 1;
-    }
+    cursor: pointer;
+    user-select: none;
   }
 
   &-options {
-    display: none;
+    position: absolute;
+    top: 3.65rem;
+    left: 0;
+    list-style: none;
+    width: 100%;
+    min-height: 7rem;
+    border: 1px solid $borderColor;
+    border-top: none;
+    box-shadow: 0 0 5px $boxShadowColor;
+    border-radius: 0 0 8px 8px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+
+    &-option {
+      padding: 0.25rem 0.5rem;
+
+      &:first-child {
+        margin-top: 0.75rem;
+      }
+
+      &:hover {
+        background-color: $borderColor;
+        cursor: pointer;
+      }
+    }
   }
 }

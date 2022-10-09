@@ -31,7 +31,7 @@ const SwitchOrganisation = () => {
           onBlur={() => setOpen(false)}
           className='switch-organisation-drop-down'
         >
-          {['FastPay', 'Borrow Me', 'Pay Later'].map((org) => (
+          {['LendSqr', 'FastPay', 'Borrow Me', 'Pay Later'].map((org) => (
             <p
               key={org}
               className='switch-organisation-drop-down-items'
