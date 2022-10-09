@@ -1,15 +1,14 @@
 import * as React from 'react';
-import {useClickOutside} from 'Hooks/useClickOutside'
+import { useClickOutside } from 'Hooks/useClickOutside';
 
 interface TableProps {
   children: React.ReactNode;
 }
 
 interface ContextProps {
-  open: boolean;
   showFilter: () => void;
-  hideFilter: () => void;
   ref: any;
+  visible: boolean;
   filterData: FilterInterface;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectChange: (name: string, value: string) => void;
@@ -27,7 +26,6 @@ interface FilterInterface {
 const TableContext = React.createContext({} as ContextProps);
 
 export const TableProvider: React.FC<TableProps> = ({ children }) => {
-  const [open, setOpen] = React.useState<boolean>(false);
   const [filterData, setFilterData] = React.useState<FilterInterface>({
     organisation: '',
     username: '',
@@ -36,17 +34,10 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
     phone: '',
     status: '',
   });
-  const ref = React.useRef<HTMLDivElement>(null);
+  const { ref, visible, setVisible } = useClickOutside();
 
   const showFilter = () => {
-    setOpen(true);
-    setTimeout(() => {
-      ref.current && ref.current.focus();
-    }, 100);
-  };
-
-  const hideFilter = () => {
-    // setOpen(false);
+    setVisible(true);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,13 +52,12 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
   return (
     <TableContext.Provider
       value={{
-        open,
         showFilter,
-        hideFilter,
         ref,
         filterData,
         handleChange,
         selectChange,
+        visible,
       }}
     >
       {children}

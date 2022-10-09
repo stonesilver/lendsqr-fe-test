@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export const useClickOutside = () => {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = React.useState<boolean>(false);
 
   const ref = React.useRef<HTMLDivElement>(null);
   const ref1 = React.useRef<HTMLDivElement>(null);

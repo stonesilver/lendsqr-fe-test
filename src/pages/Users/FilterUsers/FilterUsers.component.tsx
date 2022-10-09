@@ -4,19 +4,13 @@ import TableContext from 'Context/TableContext';
 import './FilterUsers.styles.scss';
 import CustomInput from './CustomInput/CustomInput.component';
 
-interface FilterProps {
-  hideFilter: () => void;
-}
-
-const FilterUsers = React.forwardRef<HTMLDivElement, FilterProps>(
+const FilterUsers = React.forwardRef<HTMLDivElement>(
   (props, ref) => {
     const { filterData, selectChange, handleChange } =
       React.useContext(TableContext);
     return (
       <div
         ref={ref}
-        tabIndex={-1}
-        onBlur={props.hideFilter}
         className='filter-users'
       >
         <CustomSelect
