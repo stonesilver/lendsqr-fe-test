@@ -2,9 +2,132 @@
 @import 'scss/_sass-variables.scss';
 
 .user-bio-and-details-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   background-color: $white;
-  padding: $xlg;
   border: 1px solid #213f7d0f;
   box-shadow: 3px 5px 20px $boxShadowColor;
   border-radius: 4px;
+  padding: $base $base 0 $base;
+
+  @include sm {
+    padding: $xlg $xlg 0 $xlg;
+  }
+
+  &-bio {
+    display: flex;
+    flex-direction: column;
+    gap: $base;
+
+    @include sm {
+      flex-direction: row;
+      align-items: center;
+      gap: 0;
+    }
+
+    &-avatar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+      width: 6.25rem;
+      height: 6.25rem;
+      background-color: #213f7d1a;
+      border-radius: 50%;
+
+      @include sm {
+        align-self: flex-start;
+        margin-right: $lg;
+      }
+    }
+
+    &-name-and-id {
+      @include sm {
+        border-right: 1px solid $borderColor;
+        padding-right: $lg;
+      }
+
+      &-name {
+        color: $darkBlue;
+        font-size: $base;
+        font-weight: 500;
+
+        @include sm {
+          font-size: 1.375rem;
+        }
+
+        &-id {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    &-tier {
+      @include sm {
+        border-right: 1px solid $borderColor;
+        padding: 0 $lg;
+      }
+
+      &-title {
+        font-weight: 500;
+      }
+
+      &-tier {
+        display: flex;
+        gap: 5.25px;
+      }
+    }
+
+    &-account-details {
+      @include sm {
+        padding-left: $lg;
+      }
+      &-account-balance {
+        color: $darkBlue;
+        font-size: $base;
+        font-weight: 500;
+
+        @include sm {
+          font-size: 1.375rem;
+        }
+      }
+    }
+  }
+
+  &-details-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+    max-width: calc(100vw - 4.5rem);
+    overflow: auto;
+    // padding: 0;
+
+    @include sm {
+      gap: 0;
+      max-width: auto;
+      padding: 0 $lg;
+    }
+
+    &-nav-item {
+      min-width: max-content;
+      padding: 0.25rem 0.875rem;
+      cursor: pointer;
+      transition: transform 0.1s ease-in-out;
+
+      &:hover {
+        transform: scaleX(1.05);
+      }
+
+      &.active-nav {
+        color: $lightBlue;
+        border-bottom: 2px solid $lightBlue;
+
+        &:hover {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
 }

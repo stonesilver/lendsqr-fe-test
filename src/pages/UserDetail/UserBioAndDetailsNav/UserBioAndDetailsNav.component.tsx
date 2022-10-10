@@ -1,11 +1,23 @@
 import * as React from 'react';
 import UserIcon from 'assets/svg/user.svg';
 import { ReactComponent as RatingIcon } from 'assets/svg/rating.svg';
+import UserDetailContext from 'Context/UserDetailsContext';
 import './UserBioAndDetailsNav.styles.scss';
 
+const navItems: string[] = [
+  'General Details',
+  'Documents',
+  'Bank Details',
+  'Loans',
+  'Savings',
+  'App and System',
+];
+
 const UserBioAndDetailsNav: React.FC = () => {
+  const { activeTab, changeActiveTab } = React.useContext(UserDetailContext);
   return (
     <div className='user-bio-and-details-nav'>
+      {/* User Bio */}
       <div className='user-bio-and-details-nav-bio'>
         <div className='user-bio-and-details-nav-bio-avatar'>
           <img
@@ -23,7 +35,7 @@ const UserBioAndDetailsNav: React.FC = () => {
           </p>
         </div>
         <div className='user-bio-and-details-nav-bio-tier'>
-          <p className='user-bio-and-details-nav-bio-tier-title'>Tier</p>
+          <p className='user-bio-and-details-nav-bio-tier-title'>User’s Tier</p>
           <div className='user-bio-and-details-nav-bio-tier-tier'>
             {[0, 1, 2].map((rating: number) => (
               <RatingIcon
@@ -42,6 +54,21 @@ const UserBioAndDetailsNav: React.FC = () => {
             <span className='bank-name'>Providus Bank</span>
           </p>
         </div>
+      </div>
+
+      {/* Details Nav */}
+      <div className='user-bio-and-details-nav-details-nav'>
+        {navItems.map((nav) => (
+          <p
+            key={nav}
+            className={`user-bio-and-details-nav-details-nav-nav-item ${
+              nav === activeTab ? 'active-nav' : ''
+            }`}
+            onClick={() => changeActiveTab(nav)}
+          >
+            {nav}
+          </p>
+        ))}
       </div>
     </div>
   );
