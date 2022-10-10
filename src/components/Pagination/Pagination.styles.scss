@@ -1,0 +1,64 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.custom-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .pagination-container {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    user-select: none;
+
+    .pagination-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: $lg;
+      margin: auto 4px;
+      opacity: 0.6;
+
+      &.dots:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.selected {
+        font-weight: 500;
+        opacity: 1;
+      }
+
+      .arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $xlg;
+        height: $xlg;
+        background-color: #213f7d1a;
+        border-radius: 4px;
+
+        &.left {
+          transform: rotate(90deg);
+        }
+
+        &.right {
+          transform: rotate(-90deg);
+        }
+      }
+
+      &.disabled {
+        pointer-events: none;
+
+        &:hover {
+          background-color: transparent;
+          cursor: default;
+        }
+      }
+    }
+  }
+}

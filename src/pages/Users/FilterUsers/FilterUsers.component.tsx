@@ -1,5 +1,5 @@
 import * as React from 'react';
-import CustomSelect from './CustomSelect/CustomSelect.component';
+import CustomSelect from '../../../components/CustomSelect/CustomSelect.component';
 import TableContext from 'Context/TableContext';
 import './FilterUsers.styles.scss';
 import CustomInput from './CustomInput/CustomInput.component';

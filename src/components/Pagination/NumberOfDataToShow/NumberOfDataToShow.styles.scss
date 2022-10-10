@@ -1,0 +1,42 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.number-of-data-to-show {
+  display: flex;
+  align-items: center;
+  gap: $tiny;
+  user-select: none;
+
+  &-select {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 4rem;
+    height: 1.875rem;
+    background-color: #213f7d1a;
+    border-radius: 4px;
+    padding: 0 $tiny;
+    cursor: pointer;
+
+    &-dropdown {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 0;
+      width: 100%;
+      background-color: #213f7d1a;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-radius: 4px 4px 0 0;
+
+      &-option {
+        padding: 0.25rem 1rem;
+
+        &:hover {
+          background-color: $borderColor;
+        }
+      }
+    }
+  }
+}

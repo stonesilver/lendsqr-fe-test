@@ -6,9 +6,10 @@ interface SelectInterface {
   value: string;
   name: string;
   selectChange: (name: string, value: string) => void;
-  title: string;
+  title?: string;
   options: string[];
-  placeholder: string;
+  placeholder?: string;
+  className?: string;
 }
 
 const CustomSelect: React.FC<SelectInterface> = ({
@@ -18,6 +19,7 @@ const CustomSelect: React.FC<SelectInterface> = ({
   title,
   options,
   placeholder,
+  className,
 }) => {
   const [open, setOpen] = React.useState<boolean>(false);
   const ref = React.useRef<HTMLUListElement>(null);
@@ -36,13 +38,13 @@ const CustomSelect: React.FC<SelectInterface> = ({
 
   return (
     <div className='filter-custom-select' aria-label='select'>
-      <p className='filter-custom-select-title'>{title}</p>
+      {title && <p className='filter-custom-select-title'>{title}</p>}
       <div
         aria-haspopup='listbox'
         aria-expanded={open}
         className={`filter-custom-select-selected ${
           open && 'filter-custom-select-open'
-        }`}
+        } ${className && className}`}
         onClick={toggleOptions}
       >
         {value || placeholder}

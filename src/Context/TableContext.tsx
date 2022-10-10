@@ -14,6 +14,12 @@ interface ContextProps {
   filterData: FilterInterface;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectChange: (name: string, value: string) => void;
+  currentPage: number;
+  currentTableData: string[];
+  onPageChange: (page: number) => void;
+  pageSize: number;
+  data: string[];
+  changePageSize: (pageSize: number) => void;
 }
 
 interface FilterInterface {
@@ -36,9 +42,29 @@ const initData: FilterInterface = {
   status: '',
 };
 
+const str = 'jsdkjskdjjshdjskdjkhwgjewgwehjwjgjdjvdjvdjdjhsjdvjhdvj'.split('');
+let data: string[] = [...str];
+
 export const TableProvider: React.FC<TableProps> = ({ children }) => {
   const [filterData, setFilterData] = React.useState<FilterInterface>(initData);
   const { ref, visible, setVisible } = useClickOutside();
+  const [pageSize, setPageSize] = React.useState<number>(2);
+
+  const [currentPage, setCurrentPage] = React.useState<number>(1);
+
+  const currentTableData = React.useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    const lastPageIndex = firstPageIndex + pageSize;
+    return data.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, pageSize]);
+
+  const onPageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const changePageSize = (pageSize: number) => {
+    setPageSize(pageSize);
+  };
 
   const showFilter = () => {
     setVisible(true);
@@ -72,6 +98,12 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
         visible,
         closeFilter,
         resetFilterData,
+        currentPage,
+        currentTableData,
+        onPageChange,
+        pageSize,
+        data,
+        changePageSize,
       }}
     >
       {children}
