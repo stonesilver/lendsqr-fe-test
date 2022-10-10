@@ -10,6 +10,7 @@ interface ContextProps {
   closeFilter: () => void;
   resetFilterData: () => void;
   ref: any;
+  ref1: any;
   visible: boolean;
   filterData: FilterInterface;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -47,7 +48,7 @@ let data: string[] = [...str];
 
 export const TableProvider: React.FC<TableProps> = ({ children }) => {
   const [filterData, setFilterData] = React.useState<FilterInterface>(initData);
-  const { ref, visible, setVisible } = useClickOutside();
+  const { ref, ref1, visible, setVisible } = useClickOutside();
   const [pageSize, setPageSize] = React.useState<number>(2);
 
   const [currentPage, setCurrentPage] = React.useState<number>(1);
@@ -67,7 +68,7 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
   };
 
   const showFilter = () => {
-    setVisible(true);
+    setVisible((prevS) => !prevS);
   };
 
   const closeFilter = () => {
@@ -92,6 +93,7 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
       value={{
         showFilter,
         ref,
+        ref1,
         filterData,
         handleChange,
         selectChange,

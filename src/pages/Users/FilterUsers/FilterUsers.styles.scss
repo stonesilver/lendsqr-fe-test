@@ -23,11 +23,6 @@
   padding: 1.875rem 1.25rem;
   }
 
-  &:focus {
-    border: 1px solid $borderColor;
-    outline: none;
-  }
-
   &-reset-filter-btns {
     display: flex;
     gap: $md;

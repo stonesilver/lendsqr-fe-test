@@ -8,8 +8,12 @@ export const useClickOutside = () => {
 
   React.useEffect(() => {
     const handleClickOutside = (event: any) => {
-      if (ref.current && !ref.current.contains(event.target)) setVisible(false);
-      if (ref1.current && !ref1.current.contains(event.target))
+      if (
+        ref.current &&
+        !ref.current.contains(event.target) &&
+        ref1.current &&
+        !ref1.current.contains(event.target)
+      )
         setVisible(false);
     };
 

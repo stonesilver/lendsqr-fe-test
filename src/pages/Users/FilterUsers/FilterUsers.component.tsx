@@ -4,13 +4,14 @@ import TableContext from 'Context/TableContext';
 import './FilterUsers.styles.scss';
 import CustomInput from './CustomInput/CustomInput.component';
 
-const FilterUsers = React.forwardRef<HTMLDivElement>((props, ref) => {
+const FilterUsers: React.FC = () => {
   const {
     filterData,
     selectChange,
     handleChange,
     closeFilter,
     resetFilterData,
+    ref,
   } = React.useContext(TableContext);
   return (
     <div ref={ref} className='filter-users'>
@@ -77,6 +78,6 @@ const FilterUsers = React.forwardRef<HTMLDivElement>((props, ref) => {
       </div>
     </div>
   );
-});
+};
 
 export default FilterUsers;

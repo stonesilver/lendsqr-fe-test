@@ -28,7 +28,7 @@ const td: (string | JSX.Element)[] = [
 const UsersTable: React.FC = () => {
   const {
     showFilter,
-    ref,
+    ref1,
     visible,
     currentPage,
     currentTableData,
@@ -41,15 +41,16 @@ const UsersTable: React.FC = () => {
   return (
     <>
       <div className='users-table'>
-        {visible && <FilterUsers ref={ref} />}
+        {visible && <FilterUsers />}
         <table id='users-table' className='users-table-container'>
           <thead className='users-table-container-head'>
             <tr>
               {head.map((item: string) => (
                 <th key={item}>
                   <div className='users-table-container-head-text'>
-                    {item}{' '}
+                    {item}
                     <FilterIcon
+                      ref={ref1}
                       className='users-table-container-head-text-icon'
                       onClick={showFilter}
                     />
