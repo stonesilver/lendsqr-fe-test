@@ -2,8 +2,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from 'pages/Login/Login.page';
 import Users from 'pages/Users/Users.page';
 import AppLayout from 'Layouts/AppLayout/AppLayout.layout';
-import './App.scss';
 import Page404 from 'pages/Page404/Page404.page';
+import './App.scss';
 
 function App() {
   return (
