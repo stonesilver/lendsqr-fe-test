@@ -24,23 +24,21 @@
 
   &-drop-down {
     position: absolute;
-    top: 2.5rem;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 6rem;
+    top: 2rem;
+    width: 80%;
     background-color: $white;
     border: 1px solid $borderColor;
-    padding: $tiny;
+    border-radius: 4px;
     animation: zoom 0.3s ease-in-out;
 
-    &:focus {
-      border: 1px solid $borderColor;
-      outline: none;
-    }
-
     &-items {
+      font-size: $md;
       margin: 0;
-      padding: 0.25rem 0;
+      padding: 0.35rem $tiny;
+
+      &:hover {
+        background-color: $borderColor;
+      }
     }
   }
 }
