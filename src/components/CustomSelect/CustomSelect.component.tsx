@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ReactComponent as ChevronDown } from 'assets/svg/chevron-down.svg';
+import { useClickOutside } from 'Hooks/useClickOutside';
 import './CustomSelect.styles.scss';
 
 interface SelectInterface {
@@ -21,14 +22,10 @@ const CustomSelect: React.FC<SelectInterface> = ({
   placeholder,
   className,
 }) => {
-  const [open, setOpen] = React.useState<boolean>(false);
-  const ref = React.useRef<HTMLUListElement>(null);
+  const { visible, setVisible, ref } = useClickOutside();
 
   const toggleOptions = () => {
-    setOpen((prevS) => !prevS);
-    setTimeout(() => {
-      ref.current && ref.current.focus();
-    }, 100);
+    setVisible((prevS) => !prevS);
   };
 
   const handleChange = (value: string) => {
@@ -40,27 +37,26 @@ const CustomSelect: React.FC<SelectInterface> = ({
     <div className='filter-custom-select' aria-label='select'>
       {title && <p className='filter-custom-select-title'>{title}</p>}
       <div
+        ref={ref}
         aria-haspopup='listbox'
-        aria-expanded={open}
+        aria-expanded={visible}
         className={`filter-custom-select-selected ${
-          open && 'filter-custom-select-open'
+          visible && 'filter-custom-select-open'
         } ${className && className}`}
         onClick={toggleOptions}
       >
         {value || placeholder}
         <ChevronDown className='filter-custom-select-title-icon-caret' />
       </div>
-      {open && (
-        <ul
-          ref={ref}
-          onBlur={toggleOptions}
+      {visible && (
+        <div
           className='filter-custom-select-options'
           role='listbox'
           aria-activedescendant={value}
           tabIndex={-1}
         >
           {options.map((option) => (
-            <li
+            <p
               key={option}
               id={option}
               role='option'
@@ -69,9 +65,9 @@ const CustomSelect: React.FC<SelectInterface> = ({
               onClick={() => handleChange(option)}
             >
               {option}
-            </li>
+            </p>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
