@@ -2,5 +2,7 @@
 @import 'scss/_sass-variables.scss';
 
 .user-detail {
-
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

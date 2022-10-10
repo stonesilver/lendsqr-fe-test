@@ -1,0 +1,44 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.header-and-action-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-header {
+    font-size: $lg;
+    font-weight: 500;
+    color: $darkBlue;
+  }
+
+  &-action-btns {
+    display: flex;
+    gap: 1rem;
+
+    &-btn {
+      outline: none;
+      background-color: $white;
+      font-size: $xs;
+      font-weight: 500;
+      padding: $tiny;
+      border-radius: 8px;
+
+      @include sm {
+        font-size: $md;
+        font-weight: 600;
+      padding: $base $lg;
+      }
+
+      &.blacklist {
+        color: $error;
+        border: 1px solid $error;
+      }
+
+      &.activate {
+        color: $lightBlue;
+        border: 1px solid $lightBlue;
+      }
+    }
+  }
+}
