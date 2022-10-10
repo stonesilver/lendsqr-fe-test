@@ -3,8 +3,14 @@
 
 .header-and-action-btn {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: $lg;
+
+  @include sm {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &-header {
     font-size: $lg;
@@ -15,6 +21,7 @@
   &-action-btns {
     display: flex;
     gap: 1rem;
+    align-self: flex-end;
 
     &-btn {
       outline: none;
