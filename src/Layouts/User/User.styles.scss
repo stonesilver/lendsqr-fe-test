@@ -57,11 +57,6 @@
     animation: zoom 0.3s ease-in-out;
     box-shadow: 0 0 5px $borderColor;
 
-    &:focus {
-      border: 1px solid $borderColor;
-      outline: none;
-    }
-
     @include sm {
       width: 20rem;
       min-height: 10rem;
@@ -69,7 +64,7 @@
     }
 
     &-email {
-      padding: 0 1rem;
+      padding: 1rem 1rem 0 1rem;
     }
 
     &-item {

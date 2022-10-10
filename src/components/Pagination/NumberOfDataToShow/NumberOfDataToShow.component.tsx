@@ -6,22 +6,22 @@ import './NumberOfDataToShow.styles.scss';
 
 const NumberOfDataToShow: React.FC = () => {
   const { pageSize, changePageSize, data } = React.useContext(TableContext);
-  const { visible, setVisible, ref } = useClickOutside();
+  const { visible, setVisible, ref, ref1 } = useClickOutside();
 
   const handleOptionOnClick = (value: number) => {
     changePageSize(value);
-    
+
     setTimeout(() => {
       setVisible(false);
     }, 100);
   };
   return (
-    <div className='number-of-data-to-show'>
+    <div className='number-of-data-to-show' ref={ref1}>
       Showing
       <div
         ref={ref}
         className='number-of-data-to-show-select'
-        onClick={() => setVisible(prevS => !prevS)}
+        onClick={() => setVisible((prevS) => !prevS)}
       >
         <p className='number-of-data-to-show-select-selected'>{pageSize}</p>
         <ChevronDown />

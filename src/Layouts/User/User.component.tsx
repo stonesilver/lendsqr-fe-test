@@ -1,24 +1,17 @@
 import * as React from 'react';
 import { useLocalStorage } from 'Hooks/useLocalStorage';
 import { ReactComponent as CaretDownIcon } from 'assets/svg/caret-down.svg';
+import { useClickOutside } from 'Hooks/useClickOutside';
 import { useNavigate } from 'react-router-dom';
 import './User.styles.scss';
 
 const User = () => {
-  const [open, setOpen] = React.useState(false);
-  const ref = React.useRef<HTMLDivElement>(null);
+  const { visible, setVisible, ref, ref1 } = useClickOutside();
+
   const navigate = useNavigate();
 
   const toggleDropdown = () => {
-    setOpen((prevS) => !prevS);
-
-    setTimeout(() => {
-      ref.current && ref.current.focus();
-    }, 100);
-  };
-
-  const closeDropdown = () => {
-    setOpen(false);
+    setVisible((prevS) => !prevS);
   };
 
   const { getLocalStorage, removeLocalStorage } = useLocalStorage('user');
@@ -29,7 +22,7 @@ const User = () => {
   };
 
   return (
-    <div className='user-dropdown'>
+    <div ref={ref1} className='user-dropdown'>
       <div className='user-dropdown-container' onClick={toggleDropdown}>
         <img
           src='/img/user.webp'
@@ -42,25 +35,20 @@ const User = () => {
         <CaretDownIcon className='user-dropdown-container-caret' />
       </div>
 
-      {open && (
-        <div
-          ref={ref}
-          tabIndex={-1}
-          onBlur={closeDropdown}
-          className='user-dropdown-dropdown'
-        >
+      {visible && (
+        <div ref={ref} className='user-dropdown-dropdown'>
           <p className='user-dropdown-dropdown-email'>
             {getLocalStorage?.email}
           </p>
           <p
             className='user-dropdown-dropdown-profile user-dropdown-dropdown-item'
-            onClick={closeDropdown}
+            onClick={toggleDropdown}
           >
             Profile
           </p>
           <p
             className='user-dropdown-dropdown-setting user-dropdown-dropdown-item'
-            onClick={closeDropdown}
+            onClick={toggleDropdown}
           >
             Settings
           </p>
