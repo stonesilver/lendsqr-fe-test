@@ -4,17 +4,21 @@
 .custom-pagination {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
 
   @include md {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 0;
   }
 
   .pagination-container {
     display: flex;
     align-items: center;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
     user-select: none;
     align-self: flex-end;
 
