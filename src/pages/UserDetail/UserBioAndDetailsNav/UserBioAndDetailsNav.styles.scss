@@ -1,0 +1,10 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.user-bio-and-details-nav {
+  background-color: $white;
+  padding: $xlg;
+  border: 1px solid #213f7d0f;
+  box-shadow: 3px 5px 20px $boxShadowColor;
+  border-radius: 4px;
+}
