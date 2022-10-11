@@ -22,11 +22,6 @@
     animation: zoom 0.3s ease-in-out;
     z-index: 1;
 
-    &:focus {
-      border: none;
-      outline: none;
-    }
-
     &-list {
       display: flex;
       align-items: center;

@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-top: $lg;
 
   @include md {
     flex-direction: row;

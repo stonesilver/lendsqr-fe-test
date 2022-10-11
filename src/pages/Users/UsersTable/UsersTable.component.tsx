@@ -5,6 +5,7 @@ import MoreDetails from '../MoreDetails/MoreDetails.component';
 import TableContext from 'Context/TableContext';
 import Pagination from 'components/Pagination/Pagination.component';
 import './UsersTable.styles.scss';
+import TableDescription from './TableDescription/TableDescription.component';
 
 const head: string[] = [
   'ORGANISATION',
@@ -13,16 +14,6 @@ const head: string[] = [
   'PHONE NUMBER',
   'DATE JOINED',
   'STATUS',
-];
-
-const td: (string | JSX.Element)[] = [
-  'Lendsqr',
-  'Adedeji',
-  'adedeji@lendsqr.com',
-  '08078903721',
-  'May 15, 2020 10:00 AM',
-  'Inactive',
-  <MoreDetails />,
 ];
 
 const UsersTable: React.FC = () => {
@@ -34,8 +25,10 @@ const UsersTable: React.FC = () => {
     currentTableData,
     onPageChange,
     pageSize,
-    data,
     changePageSize,
+    users,
+    loading,
+    error,
   } = React.useContext(TableContext);
 
   return (
@@ -60,40 +53,38 @@ const UsersTable: React.FC = () => {
             </tr>
           </thead>
 
-          <tbody>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(
-              (item: number) => (
-                <tr key={item} className='users-table-container-row'>
-                  {td.map((desc: string | JSX.Element, index: number) => (
-                    <td
-                      key={index}
-                      className={`users-table-container-row-description`}
-                    >
-                      {index === 6 ? (
-                        desc
-                      ) : (
-                        <p
-                          className={`description-text ${
-                            index === 5 &&
-                            'users-table-container-row-description-inactive'
-                          }`}
-                        >
-                          {desc}
-                        </p>
-                      )}
-                    </td>
-                  ))}
+          {error ? (
+            <div>Error</div>
+          ) : loading ? (
+            <div>Laoding</div>
+          ) : (
+            <tbody>
+              {currentTableData.map((user: any, index) => (
+                <tr key={index} className='users-table-container-row'>
+                  <TableDescription text={user.orgName} />
+                  <TableDescription text={user.userName} />
+                  <TableDescription text={user.email} />
+                  <TableDescription text={user.phoneNumber.split(' x')[0]} />
+                  <TableDescription text={user.createdAt} />
+                  <TableDescription>
+                    <p className='users-table-container-row-description-status-text users-table-container-row-description-inactive'>
+                      Inactive
+                    </p>
+                  </TableDescription>
+                  <TableDescription>
+                    <MoreDetails id={user.id} />
+                  </TableDescription>
                 </tr>
-              )
-            )}
-          </tbody>
+              ))}
+            </tbody>
+          )}
         </table>
       </div>
-      <div>{currentTableData}</div>
+
       <Pagination
         className='pagination-bar'
         currentPage={currentPage}
-        totalCount={data.length}
+        totalCount={users.length}
         pageSize={pageSize}
         onPageChange={onPageChange}
         changePageSize={changePageSize}

@@ -16,11 +16,13 @@ interface ContextProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   selectChange: (name: string, value: string) => void;
   currentPage: number;
-  currentTableData: string[];
+  currentTableData: {}[];
   onPageChange: (page: number) => void;
   pageSize: number;
-  data: string[];
   changePageSize: (pageSize: number) => void;
+  users: {}[];
+  loading: boolean;
+  error: boolean;
 }
 
 interface FilterInterface {
@@ -43,21 +45,21 @@ const initData: FilterInterface = {
   status: '',
 };
 
-const str = 'jsdkjskdjjshdjskdjkhwgjewgwehjwjgjdjvdjvdjdjhsjdvjhdvj'.split('');
-let data: string[] = [...str];
-
 export const TableProvider: React.FC<TableProps> = ({ children }) => {
   const [filterData, setFilterData] = React.useState<FilterInterface>(initData);
   const { ref, ref1, visible, setVisible } = useClickOutside();
-  const [pageSize, setPageSize] = React.useState<number>(2);
+  const [pageSize, setPageSize] = React.useState<number>(15);
+  const [users, setUsers] = React.useState<{}[]>([]);
+  const [loading, setLoading] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<boolean>(false);
 
   const [currentPage, setCurrentPage] = React.useState<number>(1);
 
   const currentTableData = React.useMemo(() => {
     const firstPageIndex = (currentPage - 1) * pageSize;
     const lastPageIndex = firstPageIndex + pageSize;
-    return data.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, pageSize]);
+    return users.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, pageSize, users]);
 
   const onPageChange = (page: number) => {
     setCurrentPage(page);
@@ -88,6 +90,24 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
     setFilterData((prevS) => ({ ...prevS, [name]: value }));
   };
 
+  // useEffect to fetch users
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true);
+        setError(false);
+        const res = await fetch(`${process.env.REACT_APP_API}`);
+        const data = await res.json();
+        setUsers(data);
+        setLoading(false);
+      } catch (err) {
+        setError(true);
+        setLoading(false);
+      }
+    };
+    fetchUser();
+  }, []);
+
   return (
     <TableContext.Provider
       value={{
@@ -104,8 +124,10 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
         currentTableData,
         onPageChange,
         pageSize,
-        data,
         changePageSize,
+        users,
+        loading,
+        error,
       }}
     >
       {children}

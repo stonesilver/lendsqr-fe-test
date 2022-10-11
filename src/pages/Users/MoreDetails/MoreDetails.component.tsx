@@ -4,6 +4,8 @@ import { ReactComponent as EyeIcon } from 'assets/svg/eye.svg';
 import { ReactComponent as UserBlacklistedIcon } from 'assets/svg/user-x.svg';
 import { ReactComponent as UserActivateIcon } from 'assets/svg/user-ok.svg';
 import { useNavigate } from 'react-router-dom';
+import { useClickOutside } from 'Hooks/useClickOutside';
+import { useLocalStorage } from 'Hooks/useLocalStorage';
 import './MoreDetails.styles.scss';
 
 type listProps = { icon: JSX.Element; text: string; link: string }[];
@@ -26,26 +28,34 @@ const list: listProps = [
   },
 ];
 
-const MoreDetails: React.FC = () => {
-  const [open, setOpen] = React.useState<boolean>(false);
-  const ref = React.useRef<HTMLDivElement>(null);
+interface MoreDetailsProps {
+  id: string;
+}
+
+const MoreDetails: React.FC<MoreDetailsProps> = ({ id }) => {
+  const { visible, setVisible, ref, ref1 } = useClickOutside();
+  const { setLocalStorage } = useLocalStorage('__userId');
   const navigate = useNavigate();
 
   const openDropdown = () => {
-    setOpen(true);
-    setTimeout(() => {
-      ref.current && ref.current.focus();
-    }, 100);
+    setVisible(true);
   };
 
   const closeDropdown = (link?: string) => {
-    link ? navigate(link) : setOpen(false);
+    if (link) {
+      setLocalStorage(id);
+      navigate(link);
+    } else {
+      setVisible(false);
+    }
   };
 
   return (
     <div className='more-details'>
-      <MoreIcon className='more-details-icon' onClick={openDropdown} />
-      {open && (
+      <div ref={ref1}>
+        <MoreIcon className='more-details-icon' onClick={openDropdown} />
+      </div>
+      {visible && (
         <div
           ref={ref}
           tabIndex={-1}

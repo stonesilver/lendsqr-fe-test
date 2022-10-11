@@ -61,14 +61,7 @@
       }
 
       &-description {
-        padding: 0.4rem 0;
-        padding-right: 1rem;
-
-        @include lg {
-          padding-right: 0;
-        }
-
-        .description-text {
+        .status-text {
           font-size: $xs;
           min-width: max-content;
           margin: 0;

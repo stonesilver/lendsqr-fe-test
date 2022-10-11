@@ -1,0 +1,12 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.table-description {
+  padding: 0.4rem 0;
+  padding-right: 1rem;
+
+  @include lg {
+    padding: 0.5rem 0;
+    padding-right: 0;
+  }
+}
