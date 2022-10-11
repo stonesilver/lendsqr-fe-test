@@ -1,3 +1,5 @@
+import { formatCurrency } from 'utils/formatCurrency';
+
 interface PersonalInfoProps {
   firstName: string;
   lastName: string;
@@ -67,6 +69,7 @@ export const educationAndEmployment: (
     officeEmail,
     sector,
   } = education;
+
   return [
     { title: 'level of education', value: level },
     { title: 'employment status', value: employmentStatus },
@@ -75,9 +78,14 @@ export const educationAndEmployment: (
     { title: 'office email', value: officeEmail },
     {
       title: 'Monthly income',
-      value: `$${monthlyIncome[0]} - $${monthlyIncome[1]}`,
+      value: `${formatCurrency(monthlyIncome[0])} - $${formatCurrency(
+        monthlyIncome[1]
+      )}`,
     },
-    { title: 'loan repayment', value: loanRepayment },
+    {
+      title: 'loan repayment',
+      value: formatCurrency(loanRepayment),
+    },
   ];
 };
 

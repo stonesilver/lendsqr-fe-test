@@ -20,7 +20,9 @@ export const UserDetailProvider: React.FC<UserDetailProviderProps> = ({
     setActiveTab(tab);
   };
   return (
-    <UserDetailContext.Provider value={{ activeTab, changeActiveTab }}>
+    <UserDetailContext.Provider
+      value={{ activeTab, changeActiveTab }}
+    >
       {children}
     </UserDetailContext.Provider>
   );

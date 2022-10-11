@@ -16,6 +16,19 @@ const head: string[] = [
   'STATUS',
 ];
 
+// predictive status login
+const userStatus = () => {
+  const number = Math.round(Math.random() * 4);
+
+  return number === 1
+    ? 'Inactive'
+    : number === 2
+    ? 'Pending'
+    : number === 3
+    ? 'Blacklisted'
+    : 'Active';
+};
+
 const UsersTable: React.FC = () => {
   const {
     showFilter,
@@ -59,23 +72,28 @@ const UsersTable: React.FC = () => {
             <div>Laoding</div>
           ) : (
             <tbody>
-              {currentTableData.map((user: any, index) => (
-                <tr key={index} className='users-table-container-row'>
-                  <TableDescription text={user.orgName} />
-                  <TableDescription text={user.userName} />
-                  <TableDescription text={user.email} />
-                  <TableDescription text={user.phoneNumber.split(' x')[0]} />
-                  <TableDescription text={user.createdAt} />
-                  <TableDescription>
-                    <p className='users-table-container-row-description-status-text users-table-container-row-description-inactive'>
-                      Inactive
-                    </p>
-                  </TableDescription>
-                  <TableDescription>
-                    <MoreDetails id={user.id} />
-                  </TableDescription>
-                </tr>
-              ))}
+              {currentTableData.map((user: any, index) => {
+                const status = userStatus();
+                return (
+                  <tr key={index} className='users-table-container-row'>
+                    <TableDescription text={user.orgName} />
+                    <TableDescription text={user.userName} />
+                    <TableDescription text={user.email} />
+                    <TableDescription text={user.phoneNumber.split(' x')[0]} />
+                    <TableDescription text={user.createdAt} />
+                    <TableDescription>
+                      <p
+                        className={`users-table-container-row-description-status-text users-table-container-row-description-${status}`}
+                      >
+                        {status}
+                      </p>
+                    </TableDescription>
+                    <TableDescription>
+                      <MoreDetails user={user} />
+                    </TableDescription>
+                  </tr>
+                );
+              })}
             </tbody>
           )}
         </table>

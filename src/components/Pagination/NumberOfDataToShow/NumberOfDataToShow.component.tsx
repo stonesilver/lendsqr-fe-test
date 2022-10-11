@@ -10,11 +10,8 @@ const NumberOfDataToShow: React.FC = () => {
 
   const handleOptionOnClick = (value: number) => {
     changePageSize(value);
-
-    setTimeout(() => {
-      setVisible(false);
-    }, 100);
   };
+
   return (
     <div className='number-of-data-to-show' ref={ref1}>
       Showing

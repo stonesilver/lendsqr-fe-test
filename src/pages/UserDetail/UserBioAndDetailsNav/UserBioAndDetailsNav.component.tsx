@@ -2,6 +2,8 @@ import * as React from 'react';
 import UserIcon from 'assets/svg/user.svg';
 import { ReactComponent as RatingIcon } from 'assets/svg/rating.svg';
 import UserDetailContext from 'Context/UserDetailsContext';
+import { useLocalStorage } from 'Hooks/useLocalStorage';
+import { formatCurrency } from 'utils/formatCurrency';
 import './UserBioAndDetailsNav.styles.scss';
 
 const navItems: string[] = [
@@ -15,23 +17,26 @@ const navItems: string[] = [
 
 const UserBioAndDetailsNav: React.FC = () => {
   const { activeTab, changeActiveTab } = React.useContext(UserDetailContext);
+  const { getLocalStorage: userDetails } = useLocalStorage('__userId');
+
   return (
     <div className='user-bio-and-details-nav'>
       {/* User Bio */}
       <div className='user-bio-and-details-nav-bio'>
         <div className='user-bio-and-details-nav-bio-avatar'>
           <img
-            src={UserIcon}
+            key={userDetails.id}
+            src={userDetails.profile.avatar || UserIcon}
             className='user-bio-and-details-nav-bio-avatar-img'
             alt='user avatar'
           />
         </div>
         <div className='user-bio-and-details-nav-bio-name-and-id'>
           <p className='user-bio-and-details-nav-bio-name-and-id-name'>
-            Grace Effiom
+            {`${userDetails?.profile?.firstName} ${userDetails?.profile?.lastName}`}
           </p>
           <p className='user-bio-and-details-nav-bio-name-and-id-id'>
-            LSQFf587g90
+            {userDetails?.accountNumber}
           </p>
         </div>
         <div className='user-bio-and-details-nav-bio-tier'>
@@ -47,7 +52,7 @@ const UserBioAndDetailsNav: React.FC = () => {
         </div>
         <div className='user-bio-and-details-nav-bio-account-details'>
           <p className='user-bio-and-details-nav-bio-account-details-account-balance'>
-            $200,000
+            {formatCurrency(userDetails?.accountBalance)}
           </p>
           <p className='user-bio-and-details-nav-bio-account-details-account-no'>
             <span className='ac-no'>9912345678</span>/

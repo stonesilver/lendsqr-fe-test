@@ -35,10 +35,17 @@
       height: 6.25rem;
       background-color: #213f7d1a;
       border-radius: 50%;
+      overflow: hidden;
 
       @include sm {
         align-self: flex-start;
         margin-right: $lg;
+      }
+
+      &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
 

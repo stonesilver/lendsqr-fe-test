@@ -71,14 +71,14 @@
           }
         }
 
-        &-inactive {
+        &-Inactive {
           width: fit-content;
           background-color: $borderColor;
           border-radius: 10px;
           padding: 0.1rem 0.5rem;
         }
 
-        &-pending {
+        &-Pending {
           width: fit-content;
           background-color: #e9b2001a;
           color: $sunYellow;
@@ -86,7 +86,7 @@
           padding: 0.1rem 0.5rem;
         }
 
-        &-active {
+        &-Active {
           width: fit-content;
           color: $green;
           background-color: #39cd621a;
@@ -94,7 +94,7 @@
           padding: 0.1rem 0.5rem;
         }
 
-        &-blacklisted {
+        &-Blacklisted {
           width: fit-content;
           color: $error;
           background-color: #e4033b1a;

@@ -7,56 +7,28 @@ import {
   socials,
   guarantor,
 } from 'utils/data/userInfoData';
+import { useLocalStorage } from 'Hooks/useLocalStorage';
 import './GeneralDetails.styles.scss';
 
-const dummyyPersonalInfo = {
-  firstName: 'Grace',
-  lastName: 'Effiom',
-  bvn: '07060780922',
-  gender: 'Female',
-  email: 'grace@gmail.com',
-  username: 'gracey',
-  phoneNumber: '07060780922',
-  address: '2 fountain road',
-};
-
-const dummyEducationAndEmployment = {
-  duration: '2 Years',
-  employmentStatus: 'Employed',
-  level: 'Bsc',
-  loanRepayment: '818.12',
-  monthlyIncome: ['616.57', '295.72'],
-  officeEmail: 'Kitty.Swaniawski28@gmail.com',
-  sector: 'FinTech',
-};
-
-const dummySocials = {
-  facebook: '@lendsqr',
-  instagram: '@lendsqr',
-  twitter: '@lendsqr',
-};
-
-const dummyGuarantor = {
-  address: 'Goyette Trail',
-  firstName: 'Johnathon',
-  gender: 'Male',
-  lastName: 'Hane',
-  phoneNumber: '(573) 413-3844 x9178',
-};
-
 const GeneralDetails: React.FC = () => {
+  const { getLocalStorage: userDetails } = useLocalStorage('__userId');
+
   return (
     <div className='general-details'>
       <DetailsCategory title='Personal Information'>
         <div className='general-details-personal-info'>
-          {personalInfo(dummyyPersonalInfo).map(({ title, value }) => (
+          {personalInfo({
+            ...userDetails.profile,
+            email: userDetails.email,
+            username: userDetails.userName,
+          }).map(({ title, value }) => (
             <UserInfoCard key={title} title={title} value={value} />
           ))}
         </div>
       </DetailsCategory>
       <DetailsCategory title='Education and Employment'>
         <div className='general-details-education'>
-          {educationAndEmployment(dummyEducationAndEmployment).map(
+          {educationAndEmployment(userDetails.education).map(
             ({ title, value }) => (
               <UserInfoCard key={title} title={title} value={value} />
             )
@@ -66,7 +38,7 @@ const GeneralDetails: React.FC = () => {
 
       <DetailsCategory title='Socials'>
         <div className='general-details-socials'>
-          {socials(dummySocials).map(({ title, value }) => (
+          {socials(userDetails.socials).map(({ title, value }) => (
             <UserInfoCard key={title} title={title} value={value} />
           ))}
         </div>
@@ -74,7 +46,7 @@ const GeneralDetails: React.FC = () => {
 
       <DetailsCategory title='Guarantor'>
         <div className='general-details-guarantor'>
-          {guarantor(dummyGuarantor).map(({ title, value }) => (
+          {guarantor(userDetails.guarantor).map(({ title, value }) => (
             <UserInfoCard key={title} title={title} value={value} />
           ))}
         </div>

@@ -29,10 +29,10 @@ const list: listProps = [
 ];
 
 interface MoreDetailsProps {
-  id: string;
+  user: {};
 }
 
-const MoreDetails: React.FC<MoreDetailsProps> = ({ id }) => {
+const MoreDetails: React.FC<MoreDetailsProps> = ({ user }) => {
   const { visible, setVisible, ref, ref1 } = useClickOutside();
   const { setLocalStorage } = useLocalStorage('__userId');
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const MoreDetails: React.FC<MoreDetailsProps> = ({ id }) => {
 
   const closeDropdown = (link?: string) => {
     if (link) {
-      setLocalStorage(id);
+      setLocalStorage(user);
       navigate(link);
     } else {
       setVisible(false);
