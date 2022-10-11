@@ -3,6 +3,7 @@
 
 .user-dropdown {
   position: relative;
+  z-index: 1;
 
   &-container {
     display: flex;

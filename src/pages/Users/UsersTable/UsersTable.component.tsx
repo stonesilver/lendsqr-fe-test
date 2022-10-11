@@ -78,13 +78,22 @@ const UsersTable: React.FC = () => {
             ) : (
               currentTableData.map((user: any, index) => {
                 const status = userStatus();
+                const date = new Date(user.createdAt);
+                const formattedDate = `${date
+                  .toDateString()
+                  .split(' ')
+                  .slice(1)
+                  .join(' ')} ${date.toLocaleTimeString().slice(0, 4)}${date
+                  .toLocaleTimeString()
+                  .slice(8)}`;
+                  
                 return (
                   <tr key={index} className='users-table-container-row'>
                     <TableDescription text={user.orgName} />
                     <TableDescription text={user.userName} />
                     <TableDescription text={user.email} />
                     <TableDescription text={user.phoneNumber.split(' x')[0]} />
-                    <TableDescription text={user.createdAt} />
+                    <TableDescription text={formattedDate} />
                     <TableDescription>
                       <p
                         className={`users-table-container-row-description-status-text users-table-container-row-description-${status}`}

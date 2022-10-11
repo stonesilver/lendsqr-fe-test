@@ -4,6 +4,18 @@
 .table-description {
   padding: 0.4rem 0;
   padding-right: 1rem;
+  max-width: 100%;
+  white-space: nowrap;
+
+  &:first-child {
+    @include lg {
+      max-width: 130px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding-right: 1rem;
+    }
+  }
 
   @include lg {
     padding: 0.5rem 0;
