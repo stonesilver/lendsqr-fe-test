@@ -11,11 +11,10 @@ const Page404 = () => {
         className='page-not-found-img'
       />
       <p className='page-not-found-text'>
-        Comrade this page is under development. Please check back later or go
-        home!!!
+        Comrade no vawulence found. Please go to users page
       </p>
       <Link to='/users' className='page-not-found-home-btn'>
-        <HomeIcon className='page-not-found-home-btn-icon' /> Home
+        <HomeIcon className='page-not-found-home-btn-icon' /> Users
       </Link>
     </div>
   );
