@@ -1,0 +1,28 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.user-info-card {
+  &-title {
+    font-size: $tiny;
+    text-transform: uppercase;
+
+    @include sm {
+      font-size: $xs;
+    }
+  }
+
+  &-value {
+    font-size: $xs;
+    font-weight: 500;
+    margin-top: 4px;
+
+    @include sm {
+      font-size: $md;
+    }
+
+    @include lg {
+      font-size: $base;
+      margin-top: 6px;
+    }
+  }
+}

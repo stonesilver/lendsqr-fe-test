@@ -1,0 +1,43 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.general-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  animation: zoom 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  &-personal-info,
+  &-socials,
+  &-guarantor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $xlg $base;
+
+    @include sm {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include md {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include lg {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &-education {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $xlg $base;
+
+    @include sm {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include md {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import 'scss/_media-query-mixins.scss';
+@import 'scss/_sass-variables.scss';
+
+.details-in-development {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  gap: $base;
+
+  &-gif {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &-text {
+    font-size: $base;
+  }
+}
