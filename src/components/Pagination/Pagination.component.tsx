@@ -60,17 +60,17 @@ const Pagination: React.FC<PaginationProps> = (props) => {
             <ChevronIcon />
           </div>
         </li>
-        {paginationRange?.map((pageNumber: any, index) => {
+        {paginationRange?.map((pageNumber: any, index: number) => {
           if (pageNumber === DOTS) {
             return (
-              <li key={index + Math.random()} className='pagination-item dots'>
+              <li key={index} className='pagination-item dots'>
                 &#8230;
               </li>
             );
           }
 
           return (
-            <li
+            <li key={index}
               className={`pagination-item ${
                 pageNumber === currentPage && 'selected'
               }`}

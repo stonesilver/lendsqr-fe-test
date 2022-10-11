@@ -67,6 +67,7 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
 
   const changePageSize = (pageSize: number) => {
     setPageSize(pageSize);
+    setCurrentPage(1);
   };
 
   const showFilter = () => {

@@ -66,13 +66,17 @@ const UsersTable: React.FC = () => {
             </tr>
           </thead>
 
-          {error ? (
-            <div>Error</div>
-          ) : loading ? (
-            <div>Laoding</div>
-          ) : (
-            <tbody>
-              {currentTableData.map((user: any, index) => {
+          <tbody>
+            {error ? (
+              <tr className='user-table-error'>
+                <TableDescription text='Error' />
+              </tr>
+            ) : loading ? (
+              <tr className='user-table-loading'>
+                <TableDescription text='loading' />
+              </tr>
+            ) : (
+              currentTableData.map((user: any, index) => {
                 const status = userStatus();
                 return (
                   <tr key={index} className='users-table-container-row'>
@@ -93,9 +97,9 @@ const UsersTable: React.FC = () => {
                     </TableDescription>
                   </tr>
                 );
-              })}
-            </tbody>
-          )}
+              })
+            )}
+          </tbody>
         </table>
       </div>
 

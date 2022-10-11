@@ -28,6 +28,12 @@
     width: 100%;
     border-collapse: collapse;
 
+    .user-table-loading,
+    .user-table-error {
+      font-size: $lg;
+      height: 50vh;
+    }
+
     &-head {
       &-text {
         display: flex;

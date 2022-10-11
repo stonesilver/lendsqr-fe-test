@@ -21,7 +21,7 @@ const NumberOfDataToShow: React.FC = () => {
         onClick={() => setVisible((prevS) => !prevS)}
       >
         <p className='number-of-data-to-show-select-selected'>{pageSize}</p>
-        <ChevronDown />
+        <ChevronDown className='number-of-data-to-show-select-icon' />
         {visible && (
           <ul className='number-of-data-to-show-select-dropdown'>
             {[15, 25, 50].map((number) => (
