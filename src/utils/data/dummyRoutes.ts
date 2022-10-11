@@ -1,4 +1,5 @@
 export const dummyRoutes: string[] = [
+  'dashboard',
   'guarantors',
   'loans',
   'decision-models',

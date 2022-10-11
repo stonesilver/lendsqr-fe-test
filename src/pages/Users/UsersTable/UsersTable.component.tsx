@@ -103,14 +103,16 @@ const UsersTable: React.FC = () => {
         </table>
       </div>
 
-      <Pagination
-        className='pagination-bar'
-        currentPage={currentPage}
-        totalCount={users.length}
-        pageSize={pageSize}
-        onPageChange={onPageChange}
-        changePageSize={changePageSize}
-      />
+      {users.length && (
+        <Pagination
+          className='pagination-bar'
+          currentPage={currentPage}
+          totalCount={users.length}
+          pageSize={pageSize}
+          onPageChange={onPageChange}
+          changePageSize={changePageSize}
+        />
+      )}
     </>
   );
 };
