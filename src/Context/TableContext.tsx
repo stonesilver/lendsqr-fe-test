@@ -109,6 +109,19 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
     setFilterData((prevS) => ({ ...prevS, [name]: value }));
   };
 
+  // predictive status logic
+  const userStatus = () => {
+    const number = Math.round(Math.random() * 4);
+
+    return number === 1
+      ? 'Inactive'
+      : number === 2
+      ? 'Pending'
+      : number === 3
+      ? 'Blacklisted'
+      : 'Active';
+  };
+
   // useEffect to fetch users
   React.useEffect(() => {
     const fetchUser = async () => {
@@ -117,7 +130,11 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
         setError(false);
         const res = await fetch(`${process.env.REACT_APP_API}`);
         const data = await res.json();
-        setUsers(data);
+        const newData = await data?.map((user: any) => ({
+          ...user,
+          status: userStatus(),
+        }));
+        setUsers(newData);
         setLoading(false);
       } catch (err) {
         setError(true);
