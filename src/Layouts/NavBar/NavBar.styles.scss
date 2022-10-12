@@ -22,15 +22,18 @@
   &-column-one {
     flex: 1;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-
+    
+    @include md {
+      justify-content: space-between;
+    }
+    
     &-brand-logo {
-      width: 6rem;
+      width: 9rem;
       height: 1.5rem;
       object-fit: contain;
 
-      @include sm {
+      @include md {
         width: 9rem;
         height: 1.875rem;
       }

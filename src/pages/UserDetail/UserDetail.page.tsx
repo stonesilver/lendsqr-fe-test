@@ -7,6 +7,8 @@ import DetailsOnDisplay from './DetailsOnDisplay/DetailsOnDisplay.component';
 import './UserDetail.styles.scss';
 
 const UserDetail: React.FC = () => {
+  window.scrollTo(0, 0);
+
   return (
     <div className='user-detail'>
       <Link to='/users' className='user-detail-go-back'>

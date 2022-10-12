@@ -69,11 +69,15 @@ const UsersTable: React.FC = () => {
           <tbody>
             {error ? (
               <tr className='user-table-error'>
-                <TableDescription text='Error' />
+                <TableDescription>
+                  <p className='error'>Error</p>
+                </TableDescription>
               </tr>
             ) : loading ? (
               <tr className='user-table-loading'>
-                <TableDescription text='loading' />
+                <TableDescription>
+                  <p className='loading'>Loading...</p>
+                </TableDescription>
               </tr>
             ) : (
               currentTableData.map((user: any, index) => {
@@ -86,7 +90,7 @@ const UsersTable: React.FC = () => {
                   .join(' ')} ${date.toLocaleTimeString().slice(0, 4)}${date
                   .toLocaleTimeString()
                   .slice(8)}`;
-                  
+
                 return (
                   <tr key={index} className='users-table-container-row'>
                     <TableDescription text={user.orgName} />
@@ -112,7 +116,7 @@ const UsersTable: React.FC = () => {
         </table>
       </div>
 
-      {users.length && (
+      {users.length > 0 && (
         <Pagination
           className='pagination-bar'
           currentPage={currentPage}

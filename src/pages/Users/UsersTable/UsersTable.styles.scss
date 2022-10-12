@@ -30,8 +30,16 @@
 
     .user-table-loading,
     .user-table-error {
+      position: relative;
       font-size: $lg;
       height: 50vh;
+
+      .loading,
+      .error {
+        position: absolute;
+        left: 45%;
+        font-weight: 500;
+      }
     }
 
     &-head {

@@ -2,7 +2,7 @@
 @import 'scss/_sass-variables.scss';
 
 .sidebar {
-    display: none;
+  display: none;
   position: fixed;
   top: 4.25rem;
   width: 100%;
@@ -10,6 +10,12 @@
   padding: 1.5rem 0;
   box-shadow: 0px 5px 20px $boxShadowColor;
   background-color: $white;
+  overflow-y: auto;
+
+  &.show-sidebar {
+    display: block;
+    z-index: 10;
+  }
 
   @include md {
     font-size: $md;
@@ -18,7 +24,6 @@
     top: 0;
     width: 14.69rem;
     height: calc(100vh - 5.25rem);
-    overflow-y: auto;
   }
 
   @include lg {

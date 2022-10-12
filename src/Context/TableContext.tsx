@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useClickOutside } from 'Hooks/useClickOutside';
+import { useMediaQuery } from 'Hooks/useMediaQuery';
 
 interface TableProps {
   children: React.ReactNode;
@@ -23,6 +24,9 @@ interface ContextProps {
   users: {}[];
   loading: boolean;
   error: boolean;
+  isMobile: boolean;
+  showHamburger: boolean;
+  toggleHamburger: () => void;
 }
 
 interface FilterInterface {
@@ -52,6 +56,8 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
   const [users, setUsers] = React.useState<{}[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
+  const [showHamburger, setShowHamburger] = React.useState<boolean>(false);
+  const isMobile = useMediaQuery();
 
   const [currentPage, setCurrentPage] = React.useState<number>(1);
 
@@ -63,6 +69,16 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
 
   const onPageChange = (page: number) => {
     setCurrentPage(page);
+  };
+
+  const toggleHamburger = () => {
+    setShowHamburger((prevS) => !prevS);
+
+    setTimeout(() => {
+      !showHamburger && isMobile
+        ? (document.body.style.overflow = 'hidden')
+        : (document.body.style.overflow = 'auto');
+    }, 100);
   };
 
   const changePageSize = (pageSize: number) => {
@@ -129,6 +145,9 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
         users,
         loading,
         error,
+        isMobile,
+        showHamburger,
+        toggleHamburger,
       }}
     >
       {children}
