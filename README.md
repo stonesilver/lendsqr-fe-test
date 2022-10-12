@@ -1,6 +1,6 @@
 # Lendsqr frontend engineer test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built with Typescript, React and SCSS.
 
 ## To run this on your local machine
 
