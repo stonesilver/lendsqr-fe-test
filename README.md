@@ -12,4 +12,4 @@ In the project directory, you can run:
 
 Open [click here](https://chigozie-ezenwa-lendsqr-fe-test.netlify.app/) to view it in the browser.
 
-Your can login with any email and password
+### `Your can login with any email and password`
