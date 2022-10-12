@@ -4,15 +4,17 @@ import { useLocalStorage } from 'Hooks/useLocalStorage';
 import { useNavigate, Navigate } from 'react-router-dom';
 import './Login.styles.scss';
 
-const Login = () => {
+const Login: React.FC = () => {
   const [formData, setFormData] = React.useState({
     email: '',
     password: '',
   });
+
   const [error, setError] = React.useState({
     email: '',
     password: '',
   });
+
   const [showPassword, setShowPassword] = React.useState(false);
   const { getLocalStorage, setLocalStorage } = useLocalStorage('user');
   const navigate = useNavigate();
@@ -51,7 +53,7 @@ const Login = () => {
       navigate('/users');
     }
   };
-
+// if user is logged in redirect user to user route
   return getLocalStorage ? (
     <Navigate to='/users' replace />
   ) : (
