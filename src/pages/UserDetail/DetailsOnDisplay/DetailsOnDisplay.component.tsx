@@ -5,7 +5,12 @@ import DetailsInDevelopment from '../DetailsInDevelopment/DetailsInDevelopment.c
 import './DetailsOnDisplay.styles.scss';
 
 const DetailsOnDisplay: React.FC = () => {
-  const { activeTab } = React.useContext(UserDetailContext);
+  const { activeTab, setActiveTab } = React.useContext(UserDetailContext);
+
+  React.useEffect(() => {
+    setActiveTab('General Details');
+  }, [setActiveTab]);
+
   return (
     <div className='details-on-display'>
       {activeTab === 'General Details' ? (

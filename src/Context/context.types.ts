@@ -41,4 +41,5 @@ export interface UserDetailProviderProps {
 export interface contextProps {
   activeTab: string;
   changeActiveTab: (tab: string) => void;
+  setActiveTab: (active: string) => void;
 }
