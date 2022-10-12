@@ -109,21 +109,21 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
     setFilterData((prevS) => ({ ...prevS, [name]: value }));
   };
 
-  // predictive status logic
-  const userStatus = () => {
-    const number = Math.round(Math.random() * 4);
-
-    return number === 1
-      ? 'Inactive'
-      : number === 2
-      ? 'Pending'
-      : number === 3
-      ? 'Blacklisted'
-      : 'Active';
-  };
-
   // useEffect to fetch users
   React.useEffect(() => {
+    // predictive status logic
+    const userStatus = () => {
+      const number = Math.round(Math.random() * 4);
+
+      return number === 1
+        ? 'Inactive'
+        : number === 2
+        ? 'Pending'
+        : number === 3
+        ? 'Blacklisted'
+        : 'Active';
+    };
+
     const fetchUser = async () => {
       try {
         setLoading(true);
