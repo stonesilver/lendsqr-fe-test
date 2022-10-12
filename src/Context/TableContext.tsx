@@ -75,9 +75,11 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
     setShowHamburger((prevS) => !prevS);
 
     setTimeout(() => {
-      !showHamburger && isMobile
-        ? (document.body.style.overflow = 'hidden')
-        : (document.body.style.overflow = 'auto');
+      if (!showHamburger && isMobile) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
     }, 100);
   };
 

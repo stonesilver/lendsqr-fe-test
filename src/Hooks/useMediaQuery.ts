@@ -8,6 +8,9 @@ export const useMediaQuery = () => {
 
     const handleEvent = () => {
       setIsMobile(window.innerWidth < 900);
+      if (window.innerWidth > 900) {
+        document.body.style.overflow = 'auto';
+      }
     };
 
     window.addEventListener('resize', handleEvent);
