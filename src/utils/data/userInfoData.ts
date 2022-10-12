@@ -48,7 +48,7 @@ export const personalInfo = (personalInfo: PersonalInfoProps) => {
   } = personalInfo;
   return [
     { title: 'full Name', value: `${firstName} ${lastName}` },
-    { title: 'Phone Number', value: phoneNumber },
+    { title: 'Phone Number', value: phoneNumber.split(' x')[0] },
     { title: 'Email Address', value: email },
     { title: 'Bvn', value: bvn },
     { title: 'Gender', value: gender },

@@ -23,11 +23,11 @@
     flex: 1;
     display: flex;
     align-items: center;
-    
+
     @include md {
       justify-content: space-between;
     }
-    
+
     &-brand-logo {
       width: 9rem;
       height: 1.5rem;

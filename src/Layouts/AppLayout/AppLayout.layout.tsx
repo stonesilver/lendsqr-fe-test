@@ -10,9 +10,9 @@ const AppLayout = () => {
   return getLocalStorage ? (
     <div className='app-layout'>
       <NavBar />
-      <div className='app-layout-sidebar-content'>
+      <div className='app-layout-container'>
         <Sidebar />
-        <div className='app-layout-sidebar-content-contents'>
+        <div className='app-layout-container-contents'>
           <Outlet />
         </div>
       </div>

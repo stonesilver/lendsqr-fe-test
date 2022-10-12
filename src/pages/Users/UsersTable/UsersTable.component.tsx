@@ -4,8 +4,9 @@ import FilterUsers from '../FilterUsers/FilterUsers.component';
 import MoreDetails from '../MoreDetails/MoreDetails.component';
 import TableContext from 'Context/TableContext';
 import Pagination from 'components/Pagination/Pagination.component';
-import './UsersTable.styles.scss';
 import TableDescription from './TableDescription/TableDescription.component';
+import { formatDate } from 'utils/formatDate';
+import './UsersTable.styles.scss';
 
 const head: string[] = [
   'ORGANISATION',
@@ -16,7 +17,7 @@ const head: string[] = [
   'STATUS',
 ];
 
-// predictive status login
+// predictive status logic
 const userStatus = () => {
   const number = Math.round(Math.random() * 4);
 
@@ -82,14 +83,6 @@ const UsersTable: React.FC = () => {
             ) : (
               currentTableData.map((user: any, index) => {
                 const status = userStatus();
-                const date = new Date(user.createdAt);
-                const formattedDate = `${date
-                  .toDateString()
-                  .split(' ')
-                  .slice(1)
-                  .join(' ')} ${date.toLocaleTimeString().slice(0, 4)}${date
-                  .toLocaleTimeString()
-                  .slice(8)}`;
 
                 return (
                   <tr key={index} className='users-table-container-row'>
@@ -97,7 +90,7 @@ const UsersTable: React.FC = () => {
                     <TableDescription text={user.userName} />
                     <TableDescription text={user.email} />
                     <TableDescription text={user.phoneNumber.split(' x')[0]} />
-                    <TableDescription text={formattedDate} />
+                    <TableDescription text={formatDate(user.createdAt)} />
                     <TableDescription>
                       <p
                         className={`users-table-container-row-description-status-text users-table-container-row-description-${status}`}
