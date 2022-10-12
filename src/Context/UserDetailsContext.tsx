@@ -1,13 +1,5 @@
 import * as React from 'react';
-
-interface UserDetailProviderProps {
-  children: React.ReactNode;
-}
-
-interface contextProps {
-  activeTab: string;
-  changeActiveTab: (tab: string) => void;
-}
+import { UserDetailProviderProps, contextProps } from './context.types';
 
 const UserDetailContext = React.createContext({} as contextProps);
 
@@ -20,9 +12,7 @@ export const UserDetailProvider: React.FC<UserDetailProviderProps> = ({
     setActiveTab(tab);
   };
   return (
-    <UserDetailContext.Provider
-      value={{ activeTab, changeActiveTab }}
-    >
+    <UserDetailContext.Provider value={{ activeTab, changeActiveTab }}>
       {children}
     </UserDetailContext.Provider>
   );

@@ -1,42 +1,7 @@
 import * as React from 'react';
 import { useClickOutside } from 'Hooks/useClickOutside';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
-
-interface TableProps {
-  children: React.ReactNode;
-}
-
-interface ContextProps {
-  showFilter: () => void;
-  closeFilter: () => void;
-  resetFilterData: () => void;
-  ref: any;
-  ref1: any;
-  visible: boolean;
-  filterData: FilterInterface;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  selectChange: (name: string, value: string) => void;
-  currentPage: number;
-  currentTableData: {}[];
-  onPageChange: (page: number) => void;
-  pageSize: number;
-  changePageSize: (pageSize: number) => void;
-  users: {}[];
-  loading: boolean;
-  error: boolean;
-  isMobile: boolean;
-  showHamburger: boolean;
-  toggleHamburger: () => void;
-}
-
-interface FilterInterface {
-  organisation: string;
-  username: string;
-  email: string;
-  date: string;
-  phone: string;
-  status: string;
-}
+import { TableProps, ContextProps, FilterInterface } from './context.types';
 
 const TableContext = React.createContext({} as ContextProps);
 
