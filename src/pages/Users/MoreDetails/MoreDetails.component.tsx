@@ -6,6 +6,7 @@ import { ReactComponent as UserActivateIcon } from 'assets/svg/user-ok.svg';
 import { useNavigate } from 'react-router-dom';
 import { useClickOutside } from 'Hooks/useClickOutside';
 import { useLocalStorage } from 'Hooks/useLocalStorage';
+import { UserObjectType } from 'Context/context.types';
 import './MoreDetails.styles.scss';
 
 type listProps = { icon: JSX.Element; text: string; link: string }[];
@@ -14,7 +15,7 @@ const list: listProps = [
   {
     icon: <EyeIcon />,
     text: 'View details',
-    link: '/user',
+    link: '/users',
   },
   {
     icon: <UserBlacklistedIcon />,
@@ -28,13 +29,9 @@ const list: listProps = [
   },
 ];
 
-interface MoreDetailsProps {
-  user: {};
-}
-
-const MoreDetails: React.FC<MoreDetailsProps> = ({ user }) => {
+const MoreDetails: React.FC<{user: UserObjectType}> = ({ user }) => {
   const { visible, setVisible, ref, ref1 } = useClickOutside();
-  const { setLocalStorage } = useLocalStorage('__userId');
+  const { setLocalStorage } = useLocalStorage('__userData');
   const navigate = useNavigate();
 
   const openDropdown = () => {
@@ -66,7 +63,7 @@ const MoreDetails: React.FC<MoreDetailsProps> = ({ user }) => {
             <div
               key={text}
               className='more-details-dropdown-list'
-              onClick={() => closeDropdown(link)}
+              onClick={() => closeDropdown(`${link}/${user.id}`)}
             >
               {icon}
               <p className='more-details-dropdown-list-text'>{text}</p>

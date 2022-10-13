@@ -7,11 +7,11 @@ import {
   socials,
   guarantor,
 } from 'utils/data/userInfoData';
-import { useLocalStorage } from 'Hooks/useLocalStorage';
+import UserDetailContext from 'Context/UserDetailsContext';
 import './GeneralDetails.styles.scss';
 
 const GeneralDetails: React.FC = () => {
-  const { getLocalStorage: userDetails } = useLocalStorage('__userId');
+  const { userDetails } = React.useContext(UserDetailContext);
 
   return (
     <div className='general-details'>

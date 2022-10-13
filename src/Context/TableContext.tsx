@@ -1,7 +1,12 @@
 import * as React from 'react';
 import { useClickOutside } from 'Hooks/useClickOutside';
 import { useMediaQuery } from 'Hooks/useMediaQuery';
-import { TableProps, ContextProps, FilterInterface } from './context.types';
+import {
+  TableProps,
+  ContextProps,
+  FilterInterface,
+  UserObjectType,
+} from './context.types';
 
 const TableContext = React.createContext({} as ContextProps);
 
@@ -18,7 +23,7 @@ export const TableProvider: React.FC<TableProps> = ({ children }) => {
   const [filterData, setFilterData] = React.useState<FilterInterface>(initData);
   const { ref, ref1, visible, setVisible } = useClickOutside();
   const [pageSize, setPageSize] = React.useState<number>(15);
-  const [users, setUsers] = React.useState<{}[]>([]);
+  const [users, setUsers] = React.useState<UserObjectType[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<boolean>(false);
   const [showHamburger, setShowHamburger] = React.useState<boolean>(false);

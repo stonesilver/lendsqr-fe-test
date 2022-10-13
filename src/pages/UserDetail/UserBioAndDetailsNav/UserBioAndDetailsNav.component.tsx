@@ -2,7 +2,6 @@ import * as React from 'react';
 import UserIcon from 'assets/svg/user.svg';
 import { ReactComponent as RatingIcon } from 'assets/svg/rating.svg';
 import UserDetailContext from 'Context/UserDetailsContext';
-import { useLocalStorage } from 'Hooks/useLocalStorage';
 import { formatCurrency } from 'utils/formatCurrency';
 import './UserBioAndDetailsNav.styles.scss';
 
@@ -16,8 +15,7 @@ const navItems: string[] = [
 ];
 
 const UserBioAndDetailsNav: React.FC = () => {
-  const { activeTab, changeActiveTab } = React.useContext(UserDetailContext);
-  const { getLocalStorage: userDetails } = useLocalStorage('__userId');
+  const { activeTab, changeActiveTab, userDetails } = React.useContext(UserDetailContext);
 
   return (
     <div className='user-bio-and-details-nav'>

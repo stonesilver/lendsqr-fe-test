@@ -16,7 +16,7 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path='/' element={<Navigate to='users' />} />
           <Route path='users' element={<Users />} />
-          <Route path='user' element={<UserDetail />} />
+          <Route path='users/:userId' element={<UserDetail />} />
           {dummyRoutes.map((route) => (
             <Route key={route} path={route} element={<OthersPagesDemo />} />
           ))}
