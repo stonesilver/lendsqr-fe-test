@@ -7,6 +7,21 @@
   gap: $tiny;
   padding: 0.5rem 1.125rem;
 
+  &.active {
+    position: relative;
+    background-color: #39cdcd10;
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 3px;
+      background-color: $lightBlue;
+    }
+  }
+
   @include lg {
     padding: 0.5rem 1.875rem;
   }

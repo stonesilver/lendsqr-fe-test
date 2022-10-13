@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink as Nav } from 'react-router-dom';
 import TableContext from 'Context/TableContext';
 import './NavLink.styles.scss';
 
@@ -12,14 +12,16 @@ const NavLink: React.FC<Props> = ({ svgSrc, text }) => {
   const { toggleHamburger } = React.useContext(TableContext);
 
   return (
-    <Link
+    <Nav
       to={text.toLocaleLowerCase().replaceAll(' ', '-')}
-      className='side-nav-link'
+      className={({ isActive }) =>
+        isActive ? 'side-nav-link active' : 'side-nav-link'
+      }
       onClick={toggleHamburger}
     >
       <img src={svgSrc} alt={text} className='side-nav-link-icon' />
       <p className='side-nav-link-text'>{text}</p>
-    </Link>
+    </Nav>
   );
 };
 
