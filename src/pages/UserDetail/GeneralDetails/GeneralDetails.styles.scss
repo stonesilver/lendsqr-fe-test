@@ -1,6 +1,12 @@
 @import 'scss/_media-query-mixins.scss';
 @import 'scss/_sass-variables.scss';
 
+.general-details-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .general-details {
   display: flex;
   flex-direction: column;

@@ -4,6 +4,7 @@ import { ReactComponent as RatingIcon } from 'assets/svg/rating.svg';
 import UserDetailContext from 'Context/UserDetailsContext';
 import { formatCurrency } from 'utils/formatCurrency';
 import './UserBioAndDetailsNav.styles.scss';
+import Loader from 'components/Loader/Loader.component';
 
 const navItems: string[] = [
   'General Details',
@@ -19,7 +20,9 @@ const UserBioAndDetailsNav: React.FC = () => {
     React.useContext(UserDetailContext);
 
   return isLoading ? (
-    <div>Loading!!!</div>
+    <div className='user-bio-and-details-nav-loader'>
+      <Loader />
+    </div>
   ) : (
     <div className='user-bio-and-details-nav'>
       {/* User Bio */}

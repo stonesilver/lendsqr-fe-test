@@ -7,6 +7,7 @@ import Pagination from 'components/Pagination/Pagination.component';
 import TableDescription from './TableDescription/TableDescription.component';
 import { formatDate } from 'utils/formatDate';
 import './UsersTable.styles.scss';
+import Loader from 'components/Loader/Loader.component';
 
 const head: string[] = [
   'ORGANISATION',
@@ -64,7 +65,9 @@ const UsersTable: React.FC = () => {
             ) : loading ? (
               <tr className='user-table-loading'>
                 <TableDescription>
-                  <p className='loading'>Loading...</p>
+                  <div className='loading'>
+                    <Loader />
+                  </div>
                 </TableDescription>
               </tr>
             ) : (

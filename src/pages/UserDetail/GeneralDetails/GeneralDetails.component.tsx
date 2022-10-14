@@ -9,12 +9,15 @@ import {
 } from 'utils/data/userInfoData';
 import UserDetailContext from 'Context/UserDetailsContext';
 import './GeneralDetails.styles.scss';
+import Loader from 'components/Loader/Loader.component';
 
 const GeneralDetails: React.FC = () => {
   const { userDetails, isLoading } = React.useContext(UserDetailContext);
 
   return isLoading ? (
-    <div>Laoding!!!</div>
+    <div className='general-details-loader'>
+      <Loader />
+    </div>
   ) : (
     <div className='general-details'>
       <DetailsCategory title='Personal Information'>

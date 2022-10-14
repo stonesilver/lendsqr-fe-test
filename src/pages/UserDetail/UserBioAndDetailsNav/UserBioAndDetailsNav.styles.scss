@@ -1,6 +1,12 @@
 @import 'scss/_media-query-mixins.scss';
 @import 'scss/_sass-variables.scss';
 
+.user-bio-and-details-nav-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .user-bio-and-details-nav {
   display: flex;
   flex-direction: column;
