@@ -86,4 +86,5 @@ export interface contextProps {
   changeActiveTab: (tab: string) => void;
   setActiveTab: (active: string) => void;
   userDetails: UserObjectType;
+  isLoading: boolean;
 }

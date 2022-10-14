@@ -13,10 +13,12 @@ function App() {
     <div className='App'>
       <Routes>
         {/* Protected routes */}
-        <Route element={<AppLayout />}>
-          <Route path='/' element={<Navigate to='users' />} />
-          <Route path='users' element={<Users />} />
-          <Route path='users/:userId' element={<UserDetail />} />
+        <Route path='/' element={<AppLayout />}>
+          <Route index element={<Navigate to='users' />} />
+          <Route path='users'>
+            <Route index element={<Users />} />
+            <Route path=':userId' element={<UserDetail />} />
+          </Route>
           {dummyRoutes.map((route) => (
             <Route key={route} path={route} element={<OthersPagesDemo />} />
           ))}

@@ -15,9 +15,12 @@ const navItems: string[] = [
 ];
 
 const UserBioAndDetailsNav: React.FC = () => {
-  const { activeTab, changeActiveTab, userDetails } = React.useContext(UserDetailContext);
+  const { activeTab, changeActiveTab, userDetails, isLoading } =
+    React.useContext(UserDetailContext);
 
-  return (
+  return isLoading ? (
+    <div>Loading!!!</div>
+  ) : (
     <div className='user-bio-and-details-nav'>
       {/* User Bio */}
       <div className='user-bio-and-details-nav-bio'>
