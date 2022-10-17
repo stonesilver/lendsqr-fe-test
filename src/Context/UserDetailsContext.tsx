@@ -36,6 +36,7 @@ export const UserDetailProvider: React.FC<UserDetailProviderProps> = ({
         const data = JSON.parse(userDataInLocalStorage);
         setUserDetails(data);
         setIsLoading(false);
+        localStorage.removeItem('__userData');
       } else {
         userId &&
           fetch(`${process.env.REACT_APP_API}/${userId}`)
@@ -43,6 +44,7 @@ export const UserDetailProvider: React.FC<UserDetailProviderProps> = ({
             .then((data) => {
               setUserDetails(data);
               setIsLoading(false);
+              localStorage.removeItem('__userData');
             })
             .catch(() => console.log('error occured'));
       }
@@ -50,9 +52,9 @@ export const UserDetailProvider: React.FC<UserDetailProviderProps> = ({
 
     fetchData();
 
-    return () => {
-      localStorage.removeItem('__userData');
-    };
+    // return () => {
+    //   localStorage.removeItem('__userData');
+    // };
   }, [userId]);
 
   return (
