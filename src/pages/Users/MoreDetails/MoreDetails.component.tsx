@@ -9,7 +9,7 @@ import { useLocalStorage } from 'Hooks/useLocalStorage';
 import { UserObjectType } from 'Context/context.types';
 import './MoreDetails.styles.scss';
 
-type listProps = { icon: JSX.Element; text: string; link: string }[];
+type listProps = { icon: JSX.Element; text: string; link?: string }[];
 
 const list: listProps = [
   {
@@ -20,16 +20,14 @@ const list: listProps = [
   {
     icon: <UserBlacklistedIcon />,
     text: 'Blactlist User',
-    link: '',
   },
   {
     icon: <UserActivateIcon />,
     text: 'Activate User',
-    link: '',
   },
 ];
 
-const MoreDetails: React.FC<{user: UserObjectType}> = ({ user }) => {
+const MoreDetails: React.FC<{ user: UserObjectType }> = ({ user }) => {
   const { visible, setVisible, ref, ref1 } = useClickOutside();
   const { setLocalStorage } = useLocalStorage('__userData');
   const navigate = useNavigate();
@@ -63,7 +61,7 @@ const MoreDetails: React.FC<{user: UserObjectType}> = ({ user }) => {
             <div
               key={text}
               className='more-details-dropdown-list'
-              onClick={() => closeDropdown(`${link}/${user.id}`)}
+              onClick={() => closeDropdown(link && `${link}/${user.id}`)}
             >
               {icon}
               <p className='more-details-dropdown-list-text'>{text}</p>
